@@ -36,9 +36,9 @@ def genforms(s, stem='(stem)', strict=False, tree=None):
     hunspell = FakeHunspell()
     grammar = Grammar(hunspell, tree, rules)
     forms = get_all_forms(grammar, stem)
-    print '-' * 72
-    print strip(forms)
-    print '-' * 72
+    #print '-' * 72
+    #print strip(forms)
+    #print '-' * 72
     return strip(forms), strip(expected_output)
 
 
@@ -101,6 +101,36 @@ class MyTest(unittest.TestCase):
         +1 . x*b    is .  x***-
         +1 . x**p   su .  x***-
         +2 . x***s <si . !x---*
+
+        --------------------------------
+        @rule galvoti
+        x----- galvo-ti
+        x---s- galvo-tis
+        xn---- ne-galvo-ti
+        x-b--- is-galvo-ti
+        xnb--- ne-is-galvo-ti
+        x--p-- su-galvo-ti
+        xn-p-- ne-su-galvo-ti
+        xn--s- ne-si-galvo-ti
+        x-b-s- is-si-galvo-ti
+        xnb-s- ne-is-si-galvo-ti
+        x--ps- su-si-galvo-ti
+        xn-ps- ne-su-si-galvo-ti
+
+        ''', 'galvo'))
+
+    def test_levels_macro(self):
+        self.assertMultiLineEqual(*genforms('''
+        @macro prefixes
+        +  @ xn     ne .  x***-
+        +1 @ x*b    is .  x***-
+        +1 @ x**p   su .  x***-
+
+        @rule galvoti
+        x     . ti
+        x---s . tis
+        +* prefixes
+        +2 . ****s <si . !x---*
 
         --------------------------------
         @rule galvoti

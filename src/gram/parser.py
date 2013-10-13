@@ -1,4 +1,5 @@
 from collections import OrderedDict
+from collections import defaultdict
 
 from .grammar import Form
 from .grammar import Rule
@@ -16,7 +17,7 @@ class Parser(object):
         self.rules = OrderedDict()
         self.lines = []
         self.filename = None
-        self.includes = []
+        self.includes = defaultdict(list)
         self.max_include_level = 0
         self.strict = strict
 
@@ -121,23 +122,17 @@ class Parser(object):
         else:
             raise GrammarSyntaxError(self, lineno, 'invalid include "%s"' % line)
 
-        key = None if key == '.' else key
-
-        level = 0 if level == '+' else int(level[1:])
-        self.max_include_level = max(self.max_include_level, level)
-
         if self.rule is None:
             includes = self.includes
         else:
             includes = self.rule.includes
 
-        # Append missing include levels
-        for i in range(len(includes), level+1):
-            includes.append([])
+        level = 0 if level == '+' else level[1:]
+        if level != '*':
+            level = int(level)
+            self.max_include_level = max(self.max_include_level, level)
 
-        includes = includes[level]
-
-        includes.append((
+        includes[level].append((
             lineno, line, key, spec, prefix, suffix, fltr
         ))
 
@@ -189,46 +184,50 @@ class Parser(object):
 
 
     def process_rule_includes(self,
-            rule, level, node=None, sspec='*', sprefixes=None, ssuffixes=None,
+            rule, slevel, node=None, sspec='*', sprefixes=None, ssuffixes=None,
             sfltr='*', nstack=None
         ):
         node = node or rule
         sprefixes = sprefixes or tuple()
         ssuffixes = ssuffixes or tuple()
         nstack = nstack or tuple()
-        if len(node.includes) > level:
-            includes = node.includes[level]
+        if isinstance(slevel, tuple):
+            slevel = slevel[0]
+            includes = node.includes['*']
+        elif slevel in node.includes:
+            includes = node.includes[slevel]
         else:
             includes = []
+        level = slevel + 1
         for lineno, line, key, spec, prefix, suffix, fltr in includes:
             prefixes = (prefix,) + sprefixes
             suffixes = ssuffixes + (suffix,)
 
-            if key is None:
+            if key == '.':
                 include = node
+            elif key == '@':
+                include = rule
             else:
                 include = self.get_include(lineno, key, node, nstack)
 
             nspec = self.extend_spec(lineno, sspec, spec)
             nfltr = self.extend_spec(lineno, sfltr, fltr)
             for form in include.forms.values():
-                if form.level < level+1 and self.match_spec(nfltr, form.spec):
+                if form.level < level and self.match_spec(nfltr, form.spec):
                     newspec = self.extend_spec(lineno, form.spec, nspec)
                     prefs = tuple(form.prefixes) + prefixes
                     suffs = suffixes + tuple(form.suffixes)
-                    self.add_form(lineno, line, rule, newspec, prefs, suffs, level+1)
-            #else:
-            #    nfltr = sfltr
-            #    for form in include.forms.values():
-            #        if form.level < level+1:
-            #            prefs = tuple(form.prefixes) + prefixes
-            #            suffs = suffixes + tuple(form.suffixes)
-            #            self.add_form(lineno, line, rule, form.spec, prefs, suffs, level+1)
+                    self.add_form(lineno, line, rule, newspec, prefs, suffs, level)
 
-            if key is not None:
+            if key not in ('.', '@'):
                 stack = nstack + (include.key,)
                 self.process_rule_includes(
-                    rule, level, include, nspec, prefixes, suffixes, nfltr, stack
+                    rule, slevel, include, nspec, prefixes, suffixes, nfltr,
+                    stack
+                )
+                self.process_rule_includes(
+                    rule, (slevel, '*'), include, nspec, prefixes, suffixes,
+                    nfltr, stack
                 )
 
     def process_includes(self):
@@ -240,6 +239,7 @@ class Parser(object):
         for level in range(self.max_include_level+1):
             for key, rule in rules.items():
                 self.process_rule_includes(rule, level)
+                self.process_rule_includes(rule, (level, '*'))
         return rules
 
     def parse(self, f, filename):

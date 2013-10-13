@@ -22,7 +22,7 @@ class Rule(object):
         self.name = name
         self.macro = macro
         self.forms = OrderedDict()
-        self.includes = []
+        self.includes = defaultdict(list)
 
     def __str__(self):
         return self.name.encode('utf-8') or self.key
