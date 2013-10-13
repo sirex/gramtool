@@ -1,338 +1,275 @@
-import collections
-import hunspell
-import re
-import sys
+from collections import OrderedDict
+
+from .grammar import Form
+from .grammar import Rule
+from .validator import GrammarSyntaxError
+from .validator import validate_rule
+from .validator import validate_spec
+from .exceptions import UserSideError
 
 
 class Parser(object):
-    def __init__(self, hs, lexemes):
-        self.hs = hs
-        self.lexemes = lexemes
-        self.encoding = hs.get_dic_encoding()
-        self.irregulars_init(lexemes)
+    def __init__(self, tree, strict=True):
+        self.tree = tree
+        self.rule_id = 0
+        self.rule = None
+        self.rules = OrderedDict()
+        self.lines = []
+        self.filename = None
+        self.includes = []
+        self.max_include_level = 0
+        self.strict = strict
 
-    def irregulars_init(self, lexemes):
-        irregulars = collections.defaultdict(list)
-        for lexeme in lexemes:
-            words = set()
-            affixes = lexeme.affixes or []
-            for pos, affix, prefix, suffix, optional, irregular in affixes:
-                if irregular and affix not in words:
-                    irregulars[affix].append((pos, lexeme))
-                    words.add(affix)
-        self.irregulars = irregulars
+    def strip_comments(self, line):
+        if line.startswith('#'):
+            return None
 
-    def find_suffixes(self, word):
-        if word in self.irregulars:
-            for pos, lexeme in self.irregulars[word]:
-                yield lexeme, pos, [], word, []
-        for lexeme in self.lexemes:
-            if lexeme.regular:
-                pos, prefixes, stem, suffixes = lexeme.split(word)
-                yield lexeme, pos, prefixes, stem, suffixes
+        if '#' in line:
+            line, comment = line.split('#', 1)
+            line = line.strip()
 
-    def check_lexeme(self, lexeme, stem):
-        for pos, word in lexeme.generate_words(stem):
-            try:
-                word = word.encode(self.encoding)
-            except UnicodeEncodeError:
-                return False
-            if not (self.hs.spell(word) or
-                    self.hs.spell(word[0].upper() + word[1:])):
-                return False
-        return True
+        return line
 
-    def analize(self, word):
-        for lexeme, pos, prefixes, stem, suffixes in self.find_suffixes(word):
-            if pos and self.check_lexeme(lexeme, stem):
-                yield lexeme, pos, prefixes, stem, suffixes
-
-    def get_lemma(self, word):
-        for lexeme, pos, prefixes, stem, suffixes in self.find_suffixes(word):
-            if pos and self.check_lexeme(lexeme, stem):
-                for grammar, word in lexeme.generate_words(stem):
-                    return word
-
-
-class Lexeme(object):
-    def __init__(self, key, name=''):
-        self.key = key
-        self.name = name
-        self.affixes = []
-        self.infixes = []
-        self.regular = True
-
-    def __repr__(self):
-        if self.name:
-            return '<Lexeme %s (%s)>' % (self.key, self.name)
+    def open_rule(self, lineno, line):
+        if line.startswith('@rule'):
+            macro = False
+            name = line[len('@rule'):].strip()
         else:
-            return '<Lexeme %s>' % self.key
+            macro = True
+            name = line[len('@macro'):].strip()
+        self.rule_id += 1
+        self.rule = Rule(lineno, self.rule_id, name, macro)
 
-    def get_key(self):
-        return self.key
+    def close_rule(self):
+        if self.rule is not None:
+            key = self.rule.name or self.rule.key
+            validate_rule(self, self.rule, key)
+            self.rules[key] = self.rule
 
-    def get_name(self):
-        if self.name:
-            return self.name
+    def parse_spec(self, spec):
+        pos = spec[0]
+        if pos == '*': return spec, None, None
+        name = self.tree['pos'][pos]
+        if name in self.tree['grammar']:
+            props = self.tree['grammar'][name]
         else:
-            return self.key
+            props = []
 
-    def parse(self, spec, affix, options):
-        prefix    = '^' in options
-        infix     = '|' in options
-        suffix    = '$' in options
-        optional  = '?' in options
-        irregular = '!' in options
+        if len(props) > len(spec)-1:
+            spec += '-' * (len(props) - (len(spec)-1))
+        return spec, name, props
 
-        if '>' in options:
-            infix = '>'
-        elif '<' in options:
-            infix = '<'
-        elif '|' in options:
-            infix = '|'
+    def add_form(self, lineno, line, rule, spec, prefixes, suffixes, level, stem=None):
+        spec, name, props = self.parse_spec(spec)
+        if self.strict and name is not None:
+            validate_spec(self, lineno, line, spec, name, props)
+
+        if spec in rule.forms:
+            raise GrammarSyntaxError(self, lineno,
+                'this form "%s" is already defined' % spec
+            )
+
+        form = Form(rule, spec, level, stem)
+
+        for prefix in prefixes:
+            prefix = '' if prefix == '.' else prefix
+            if prefix.startswith('<'):
+                if len(form.prefixes) > 0:
+                    form.prefixes.append(prefix[1:])
+            elif prefix:
+                form.prefixes.append(prefix)
+
+        for suffix in reversed(suffixes):
+            suffix = '' if suffix == '.' else suffix
+            if suffix.endswith('>'):
+                suffix = suffix[:-1]
+                if len(form.suffixes) > 0:
+                    form.suffixes.insert(0, suffix)
+            elif suffix:
+                form.suffixes.insert(0, suffix)
+        rule.forms[spec] = form
+
+
+    def parse_form(self, lineno, line):
+        tokens = line.split()
+        if len(tokens) == 3:
+            spec, prefix, suffix = tokens
+            stem = None
+        elif len(tokens) == 2:
+            spec, stem = tokens
+            prefix = suffix = ''
         else:
-            infix = False
+            raise GrammarSyntaxError(self, lineno,
+                'invalid rule form "%s"' % line
+            )
 
-        if affix == '.':
-            affix = ''
+        self.add_form(lineno, line, self.rule, spec, (prefix,), (suffix,), 0, stem)
 
-        if irregular:
-            self.regular = False
-        if suffix or prefix or irregular:
-            self.affixes.append((spec, affix, prefix, suffix, optional, irregular))
-        if infix:
-            prefix = False
-            suffix = False
-            if infix == '<':
-                prefix = True
-            elif infix == '>':
-                suffix = True
-            elif infix == '|':
-                prefix = True
-                suffix = True
-            self.infixes.append((spec, affix, prefix, suffix, optional))
-
-    def feed(self, line):
-        line = re.sub(r'\s+', ' ', line)
-        items = line.split(' ')
-        if len(items) == 2:
-            spec, affix = items
-            self.parse(spec, affix, '!')
+    def parse_include(self, lineno, line):
+        tokens = line.split()
+        if len(tokens) == 2:
+            level, key = tokens
+            spec = '*'
+            prefix = ''
+            suffix = ''
+            fltr = '*'
+        elif len(tokens) == 5:
+            level, key, spec, prefix, suffix = tokens
+            fltr = '*'
+        elif len(tokens) == 6:
+            level, key, spec, prefix, suffix, fltr = tokens
         else:
-            spec, affix, options = items
-            self.parse(spec, affix, options)
+            raise GrammarSyntaxError(self, lineno, 'invalid include "%s"' % line)
 
-    def merge(self, g1, g2):
-        if (
-            not isinstance(g1, (str, unicode)) or
-            not isinstance(g2, (str, unicode))
+        key = None if key == '.' else key
+
+        level = 0 if level == '+' else int(level[1:])
+        self.max_include_level = max(self.max_include_level, level)
+
+        if self.rule is None:
+            includes = self.includes
+        else:
+            includes = self.rule.includes
+
+        # Append missing include levels
+        for i in range(len(includes), level+1):
+            includes.append([])
+
+        includes = includes[level]
+
+        includes.append((
+            lineno, line, key, spec, prefix, suffix, fltr
+        ))
+
+    def match_spec(self, fltr, spec):
+        if fltr.startswith('!'):
+            fltr = fltr[1:]
+            match = False
+        else:
+            match = True
+        if len(fltr) > len(spec):
+            return not match
+        for i, f in enumerate(fltr):
+            if f == '*': continue
+            if f != spec[i]:
+                return not match
+        return match
+
+    def extend_spec(self, lineno, base, extension):
+        if extension == '*':
+            return base
+
+        blen = len(base)
+        elen = len(extension)
+
+        if blen > elen:
+            extension += '*' * (blen-elen)
+        elif blen < elen:
+            base += '*' * (elen-blen)
+
+        return ''.join([
+            b if extension[i] == '*' else extension[i]
+            for i, b in enumerate(base)
+        ])
+
+    def get_include(self, lineno, key, rule, stack):
+        if key not in self.rules:
+            raise GrammarSyntaxError(self, lineno,
+                'Specified include name "%s" is not defined.' % key
+            )
+
+        include = self.rules[key]
+
+        if include.key in stack:
+            raise GrammarSyntaxError(self, lineno,
+                'Circular include detected, while processing %s' % rule
+            )
+
+        return include
+
+
+    def process_rule_includes(self,
+            rule, level, node=None, sspec='*', sprefixes=None, ssuffixes=None,
+            sfltr='*', nstack=None
         ):
-            return g2
+        node = node or rule
+        sprefixes = sprefixes or tuple()
+        ssuffixes = ssuffixes or tuple()
+        nstack = nstack or tuple()
+        if len(node.includes) > level:
+            includes = node.includes[level]
+        else:
+            includes = []
+        for lineno, line, key, spec, prefix, suffix, fltr in includes:
+            prefixes = (prefix,) + sprefixes
+            suffixes = ssuffixes + (suffix,)
 
-        pos = ''
-        g1s = len(g1)
-        g2s = len(g2)
-        size = max(g1s, g2s)
-        for i in range(size):
-            if i < g2s and g2[i] != '*':
-                pos += g2[i]
-            elif i < g1s:
-                pos += g1[i]
-        return pos
-
-    def split(self, word):
-        stem = word
-        suffixes = []
-        prefixes = []
-        pos = ''
-
-        sort_by_len = lambda k: len(k[1])
-
-        affixes = sorted(self.affixes, key=sort_by_len, reverse=True)
-        found = False
-        for spec, affix, prefix, suffix, optional, irregular in affixes:
-            if prefix and stem.startswith(affix):
-                if affix != '':
-                    stem = stem[:-len(affix)]
-                pos = self.merge(pos, spec)
-                prefixes.append(affix)
-                found = True
-
-            if suffix and stem.endswith(affix):
-                if affix != '':
-                    stem = stem[:-len(affix)]
-                pos = self.merge(pos, spec)
-                suffixes.insert(0, affix)
-                found = True
-
-            if found:
-                break
-
-        infixes = sorted(self.infixes, key=sort_by_len, reverse=True)
-        for spec, affix, prefix, suffix, optional in infixes:
-            if prefix and stem.startswith(affix):
-                if affix != '':
-                    stem = stem[:-len(affix)]
-                pos = self.merge(pos, spec)
-                prefixes.append(affix)
-
-            if suffix and stem.endswith(affix):
-                if affix != '':
-                    stem = stem[:-len(affix)]
-                pos = self.merge(pos, spec)
-                suffixes.insert(0, affix)
-
-        return pos, prefixes, stem, suffixes
-
-    def generate_infixed_words(self, stem, skip_optional=True):
-        yield '', stem
-
-        for spec, affix, prefix, suffix, optional in self.infixes:
-            if optional and skip_optional: continue
-            if prefix:
-                yield spec, affix + stem
-
-            if suffix:
-                yield spec, stem + affix
-
-    def generate_words(self, stem, skip_optional=True):
-        for pos, stem in self.generate_infixed_words(stem, skip_optional):
-            for spec, affix, prefix, suffix, optional, irregular in self.affixes:
-                if optional and skip_optional: continue
-                if irregular:
-                    yield self.merge(spec, pos), affix
-                    continue
-
-                if prefix:
-                    yield self.merge(spec, pos), affix + stem
-
-                if suffix:
-                    yield self.merge(spec, pos), stem + affix
-
-
-def strip_comments(line):
-    if line.startswith('#'):
-        return None
-
-    if '#' in line:
-        line, comment = line.split('#', 1)
-        line = line.strip()
-
-    return line
-
-
-def read_grammar(f):
-    lexeme = None
-    key = 0
-    for line in f:
-        line = line.decode('utf-8').strip()
-        line = strip_comments(line)
-        if not line: continue
-
-        if line == '@rule' or line.startswith('@rule '):
-            if lexeme is not None:
-                yield lexeme
-            name = line[5:].strip()
-            lexeme = Lexeme(key, name)
-            key += 1
-            continue
-
-        if lexeme is None: continue
-
-        lexeme.feed(line)
-
-    if lexeme is not None:
-        yield lexeme
-
-
-def read_hunspell_words(f, encoding):
-    for i, line in enumerate(f):
-        line = line.decode(encoding).strip()
-
-        # Ignore comment
-        if line.startswith('/'): continue
-
-        # First line is number of words in dictionary
-        if i == 0:
-            #noflines = int(line.strip())
-            continue
-
-        word = line
-        if '/' in word:
-            word = word.split('/', 1)[0]
-
-        yield word
-
-
-def analize_word(grammar, word, skip_optional=True):
-    for lexeme, pos, prefixes, stem, suffixes in grammar.analize(word):
-        print
-        for grammar, word in lexeme.generate_words(stem, skip_optional):
-            print ('%s %s' % (
-                grammar,
-                word,
-            )).encode('utf-8')
-
-
-def analize_all_words(grammar, dic):
-    total_words = 0
-    covered_words = 0
-    words_by_pos = collections.defaultdict(int)
-    with open(dic) as f:
-        for i, line in enumerate(f):
-            line = line.decode(grammar.encoding).strip()
-
-            # Ignore comment
-            if line.startswith('/'): continue
-
-            # First line is number of words in dictionary
-            if i == 0:
-                #noflines = int(line.strip())
-                continue
-
-            total_words += 1
-            word = line
-            if '/' in word:
-                word = word.split('/', 1)[0]
-
-            lexemes = list(grammar.analize(word))
-            if len(lexemes) == 0:
-                pass
-                #print line.encode('utf-8')
+            if key is None:
+                include = node
             else:
-                covered_words += 1
-                lexeme, grammar, prefixes, stem, suffixes = lexemes[0]
-                morphemes = '-'.join(prefixes + [stem] + suffixes)
-                print ('{:8} {:24} {}'.format(grammar, morphemes, word)).encode('utf-8')
-                words_by_pos[grammar[0]] += 1
+                include = self.get_include(lineno, key, node, nstack)
 
-            #if i > 10: break
+            nspec = self.extend_spec(lineno, sspec, spec)
+            nfltr = self.extend_spec(lineno, sfltr, fltr)
+            for form in include.forms.values():
+                if form.level < level+1 and self.match_spec(nfltr, form.spec):
+                    newspec = self.extend_spec(lineno, form.spec, nspec)
+                    prefs = tuple(form.prefixes) + prefixes
+                    suffs = suffixes + tuple(form.suffixes)
+                    self.add_form(lineno, line, rule, newspec, prefs, suffs, level+1)
+            #else:
+            #    nfltr = sfltr
+            #    for form in include.forms.values():
+            #        if form.level < level+1:
+            #            prefs = tuple(form.prefixes) + prefixes
+            #            suffs = suffixes + tuple(form.suffixes)
+            #            self.add_form(lineno, line, rule, form.spec, prefs, suffs, level+1)
 
-    print
-    print
-    for pos, n in words_by_pos.items():
-        print 'Number of {}: {:8>}'.format(pos, n)
-    print 'Total coverted: ', covered_words
-    print 'Total uncovered: ', total_words - covered_words
-    print 'All words: ', total_words
+            if key is not None:
+                stack = nstack + (include.key,)
+                self.process_rule_includes(
+                    rule, level, include, nspec, prefixes, suffixes, nfltr, stack
+                )
+
+    def process_includes(self):
+        rules = OrderedDict()
+        for key, rule in self.rules.items():
+            if not rule.macro:
+                rules[key] = rule
+
+        for level in range(self.max_include_level+1):
+            for key, rule in rules.items():
+                self.process_rule_includes(rule, level)
+        return rules
+
+    def parse(self, f, filename):
+        self.filename = filename
+        for lineno, line in enumerate(f, 1):
+            line = line.decode('utf-8').strip()
+            self.lines.append(line)
+            line = self.strip_comments(line)
+            if not line: continue
+
+            if (
+                line == '@rule' or line.startswith('@rule ') or
+                line == '@macro' or line.startswith('@macro ')
+            ):
+                self.close_rule()
+                self.open_rule(lineno, line)
+            else:
+                if line.startswith('+'):
+                    self.parse_include(lineno, line)
+                else:
+                    self.parse_form(lineno, line)
+
+        self.close_rule()
+        return self.process_includes()
 
 
-
-def main():
-    dic = sys.argv[1]
-    aff = dic[:-3] + 'aff'
-    hs = hunspell.HunSpell(dic, aff)
-
-    with open('spec-lt') as f:
-        lexemes = list(read_grammar(f))
-    morph = Parser(hs, lexemes)
-
-    if len(sys.argv) > 2:
-        word = sys.argv[2].decode('utf-8')
-        analize_word(morph, word, skip_optional=False)
-    else:
-        analize_all_words(morph, dic)
-
-
-if __name__ == '__main__':
-    main()
+def get_grammar_rules(tree, filename):
+    parser = Parser(tree)
+    with open(filename) as f:
+        try:
+            return parser.parse(f, filename)
+        except GrammarSyntaxError as e:
+            raise UserSideError(e.format_error())
