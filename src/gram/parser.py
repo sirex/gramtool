@@ -49,7 +49,7 @@ class Parser(object):
 
     def parse_spec(self, spec):
         pos = spec[0]
-        if pos == '*': return spec, None, None
+        if pos in ('*', '%'): return spec, None, None
         name = self.tree['pos'][pos]
         if name in self.tree['grammar']:
             props = self.tree['grammar'][name]
@@ -136,36 +136,50 @@ class Parser(object):
             lineno, line, key, spec, prefix, suffix, fltr
         ))
 
+    def fill_specs(self, a, b):
+        alen = len(a)
+        blen = len(b)
+
+        if alen > blen:
+            return a, b + '-' * (alen-blen)
+        elif alen < blen:
+            return a + '-' * (blen-alen), b
+        else:
+            return a, b
+
     def match_spec(self, fltr, spec):
+        #print '%s -> %s => ' % (fltr, spec),
         if fltr.startswith('!'):
             fltr = fltr[1:]
             match = False
         else:
             match = True
-        if len(fltr) > len(spec):
-            return not match
+        fltr, spec = self.fill_specs(fltr, spec)
         for i, f in enumerate(fltr):
             if f == '*': continue
             if f != spec[i]:
+                #print repr(not match)
                 return not match
+        #print repr(match)
         return match
 
     def extend_spec(self, lineno, base, extension):
+        #print '%04d %s -> %s => ' % (lineno, base, extension),
         if extension == '*':
+            #print base
             return base
 
-        blen = len(base)
-        elen = len(extension)
+        if base == '*':
+            #print extension
+            return extension
 
-        if blen > elen:
-            extension += '*' * (blen-elen)
-        elif blen < elen:
-            base += '*' * (elen-blen)
-
-        return ''.join([
+        base, extension = self.fill_specs(base, extension)
+        newspec = ''.join([
             b if extension[i] == '*' else extension[i]
             for i, b in enumerate(base)
         ])
+        #print newspec
+        return newspec
 
     def get_include(self, lineno, key, rule, stack):
         if key not in self.rules:
@@ -210,14 +224,17 @@ class Parser(object):
             else:
                 include = self.get_include(lineno, key, node, nstack)
 
-            nspec = self.extend_spec(lineno, sspec, spec)
+            nspec = self.extend_spec(lineno, sspec.lstrip('%'), spec)
             nfltr = self.extend_spec(lineno, sfltr, fltr)
             for form in include.forms.values():
                 if form.level < level and self.match_spec(nfltr, form.spec):
-                    newspec = self.extend_spec(lineno, form.spec, nspec)
+                    newspec = self.extend_spec(lineno, form.spec.lstrip('%'), nspec)
                     prefs = tuple(form.prefixes) + prefixes
                     suffs = suffixes + tuple(form.suffixes)
-                    self.add_form(lineno, line, rule, newspec, prefs, suffs, level)
+                    self.add_form(
+                        lineno, line, rule, newspec, prefs, suffs, level,
+                        form.stem
+                    )
 
             if key not in ('.', '@'):
                 stack = nstack + (include.key,)
