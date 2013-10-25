@@ -149,6 +149,8 @@ class Parser(object):
 
     def match_spec(self, fltr, spec):
         #print '%s -> %s => ' % (fltr, spec),
+        if fltr == '*' or spec == '*':
+            return True
         if fltr.startswith('!'):
             fltr = fltr[1:]
             match = False

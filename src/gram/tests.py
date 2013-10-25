@@ -38,9 +38,9 @@ def genforms(s, stem='(stem)', strict=False, tree=None):
     hunspell = FakeHunspell()
     grammar = Grammar(hunspell, tree, rules)
     forms = get_all_forms(grammar, stem)
-    print '-' * 72
-    print strip(forms)
-    print '-' * 72
+    #print '-' * 72
+    #print strip(forms)
+    #print '-' * 72
     return strip(forms), strip(expected_output)
 
 
@@ -250,14 +250,6 @@ class MyTest(unittest.TestCase):
         + @     xp2pp   have+       .   %xs1pp
         + @     xp3pp   have+       .   %xs1pp
 
-        # Present perfect continuous
-        + @     xs1pp   have+       .   %xs1pp
-        + @     xs2pp   have+       .   %xs1pp
-        + @     xs3pp   has+        .   %xs1pp
-        + @     xp1pp   have+       .   %xs1pp
-        + @     xp2pp   have+       .   %xs1pp
-        + @     xp3pp   have+       .   %xs1pp
-
         @rule   go
         %xs1p   go
         %xs3p   goes
@@ -267,15 +259,14 @@ class MyTest(unittest.TestCase):
 
         +* irregular-verb
 
-
         --------------------------------
-        @rule verbs
-        xs3ps- learn-s
-        xs1ps- learn
-        xs2ps- learn
-        xp1ps- learn
-        xp2ps- learn
-        xp3ps- learn
+        @rule regular-verbs
+        xs1p-- learn
+        xs2p-- learn
+        xs3p-- learn-s
+        xp1p-- learn
+        xp2p-- learn
+        xp3p-- learn
         xs1pc- am learn-ing
         xs2pc- are learn-ing
         xs3pc- is learn-ing
@@ -288,5 +279,91 @@ class MyTest(unittest.TestCase):
         xp1ss- learn-ed
         xp2ss- learn-ed
         xp3ss- learn-ed
+        xs1sc- was learn-ing
+        xs2sc- where learn-ing
+        xs3sc- was learn-ing
+        xp1sc- where learn-ing
+        xp2sc- where learn-ing
+        xp3sc- where learn-ing
+        xs1pp- have learn-ed
+        xs2pp- have learn-ed
+        xs3pp- has learn-ed
+        xp1pp- have learn-ed
+        xp2pp- have learn-ed
+        xp3pp- have learn-ed
+        xs1ppc have been learn
+        xs2ppc have been learn
+        xs3ppc has been learn
+        xp1ppc have been learn
+        xp2ppc have been learn
+        xp3ppc have been learn
+        xs1sp- had learn-ed
+        xs2sp- had learn-ed
+        xs3sp- had learn-ed
+        xp1sp- had learn-ed
+        xp2sp- had learn-ed
+        xp3sp- had learn-ed
+        xs1spc had been learn-ed
+        xs2spc had been learn-ed
+        xs3spc had been learn-ed
+        xp1spc had been learn-ed
+        xp2spc had been learn-ed
+        xp3spc had been learn-ed
+        xs1f-- will learn
+        xs2f-- will learn
+        xs3f-- will learn
+        xp1f-- will learn
+        xp2f-- will learn
+        xp3f-- will learn
+        xs1fc- will be learn-ing
+        xs2fc- will be learn-ing
+        xs3fc- will be learn-ing
+        xp1fc- will be learn-ing
+        xp2fc- will be learn-ing
+        xp3fc- will be learn-ing
+        xs1fp- will have learn-ed
+        xs2fp- will have learn-ed
+        xs3fp- will have learn-ed
+        xp1fp- will have learn-ed
+        xp2fp- will have learn-ed
+        xp3fp- will have learn-ed
+        xs1p-C would learn
+        xs2p-C would learn
+        xs3p-C would learn
+        xp1p-C would learn
+        xp2p-C would learn
+        xp3p-C would learn
+
+        @rule go
+        xs1p-- go
+        xs2p-- go
+        xs3p-- goes
+        xp1p-- go
+        xp2p-- go
+        xp3p-- go
+        xs1pc- am going
+        xs2pc- are going
+        xs3pc- is going
+        xp1pc- are going
+        xp2pc- are going
+        xp3pc- are going
+        xs1ss- went
+        xs2ss- went
+        xs3ss- went
+        xp1ss- went
+        xp2ss- went
+        xp3ss- went
+        xs1sc- was going
+        xs2sc- were going
+        xs3sc- was going
+        xp1sc- were going
+        xp2sc- were going
+        xp3sc- were going
+        xs1pp- have gone
+        xs2pp- have gone
+        xs3pp- has gone
+        xp1pp- have gone
+        xp2pp- have gone
+        xp3pp- have gone
 
         ''', 'learn'))
