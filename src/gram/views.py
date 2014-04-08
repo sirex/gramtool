@@ -9,5 +9,5 @@ def print_grammar(grammar):
 
 
 def print_forms(grammar, word):
-    print word
-    import pprint ; pprint.pprint(list(grammar.boo(word)))
+    for lemma, lexeme in grammar.iter_rules(word):
+        print (u'%s [%s] -> %s' % (lexeme, lexeme.form.spec, lemma)).encode('utf-8')

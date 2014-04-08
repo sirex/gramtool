@@ -1,0 +1,2015 @@
+# Lithuanian grammar rules
+
+@rule dirbti
+# Bendratis (infinitive)
+V     ti     $ #     dirbti
+
+# Esamasis laikas (simple present)
+vip1s u      $ # aš  dirbu
+vip2s i      $ # tu  dirbi
+vip3s a      $ # jis dirba
+vip1p ame    $ # mes dirbame
+vip2p ate    $ # jūs dirbate
+vip3p a      $ # jie dirba
+
+# Būtasis kartinis laikas (past simple)
+vis1s au     $ # aš  dirbau
+vis2s ai     $ # tu  dirbai
+vis3s o      $ # jis dirbo
+vis1p ome    $ # mes dirbome
+vis2p ote    $ # jūs dirbote
+vis3p o      $ # jie dirbo
+
+# Būtasis dažninis laikas (past perfect progressive)
+vis1s davau  $ # aš  dirbdavau
+vis2s davai  $ # tu  dirbdavai
+vis3s davo   $ # jis dirbdavo
+vis1p davome $ # mes dirbdavome
+vis2p davote $ # jūs dirbdavote
+vis3p davo   $ # jie dirbdavo
+
+# Būsimasis laikas (future simple)
+vif1s siu    $ # aš  dirbsiu
+vif2s si     $ # tu  dirbsi
+vif3s s      $ # jis dirbs
+vif1p sime   $ # mes dirbsime
+vif2p site   $ # jūs dirbsite
+vif3p s      $ # jie dirbs
+
+# Tariamoji nuosaka (subjunctive mood)
+vs-1s čiau   $ # aš  dirbčiau
+vs-2s tum    $ # tu  dirbtum
+vs-3s tų     $ # jis dirbtų
+vs-1p tume   $ # mes dirbtume
+vs-2p tumėte $ # jūs dirbtumėte
+vs-3p tų     $ # jie dirbtų
+
+# Liepiamoji nuosaka (imperative mood)
+vmp2s k      $ # tu  dirbk
+vmp2p kit    $ # jūs dirbkit
+vmp2p kite   $ # jūs dirbkite
+
+@rule A -oti miegoti
+vni   oti    $ #     mieg-oti
+vnp1s u      $ # aš  mieg-u
+vnp2s i      $ # tu  mieg-i
+vnp3s a      $ # jis mieg-a
+vnp1p ame    $ # mes mieg-ame
+vnp2p ate    $ # jūs mieg-ate
+vnp3p a      $ # jie mieg-a
+vns1s ojau   $ # aš  mieg-ojau
+vns2s ojai   $ # tu  mieg-ojai
+vns3s ojo    $ # jis mieg-pjo
+vns1p ojome  $ # mes mieg-ojome
+vns2p ojote  $ # jūs mieg-ojote
+vns3p ojo    $ # jie mieg-ojo
+vnf1s osiu   $ # aš  mieg-osiu
+vnf2s osi    $ # tu  mieg-osi
+vnf3s os     $ # jis mieg-os
+vnf1p osime  $ # mes mieg-osime
+vnf2p osite  $ # jūs mieg-osite
+vnf3p os     $ # jie mieg-os
+vmp2s ok $
+vmp2p okite $
+
+@rule A -oti galvoti
+vni   ti    $ #     galvo-
+vnp1s ju      $ # aš  galvo-ju
+vnp2s ji      $ # tu  
+vnp3s ja      $ # jis 
+vnp1p jame    $ # mes 
+vnp2p jate    $ # jūs 
+vnp3p ja      $ # jie 
+vns1s jau   $ # aš  
+vns2s jai   $ # tu  
+vns3s jo    $ # jis 
+vns1p jome  $ # mes 
+vns2p jote  $ # jūs 
+vns3p jo    $ # jie 
+vnf1s siu   $ # aš  
+vnf2s si    $ # tu  
+vnf3s s     $ # jis 
+vnf1p sime  $ # mes 
+vnf2p site  $ # jūs 
+vnf3p s     $ # jie 
+vmp2s k $
+vmp2p kite $
+
+@rule A -ti mėgti
+vni   gti    $
+vnp1s gstu   $
+vnp2s gsti   $
+vnp3s gsta   $
+vnp1p gstame $
+vnp2p gstate $
+vnp3p gsta   $
+vns1s gau   $
+vns2s gai   $
+vns3s go    $
+vns1p gome  $
+vns2p gote  $
+vns3p go    $
+vnf1s gsiu  $
+vnf2s gsi   $
+vnf3s gs    $
+vnf1p gsime $
+vnf2p gsite $
+vnf3p gs    $
+vmp2s k $
+vmp2p kite  $
+
+@rule A -ėti
+vni   ėti    $ #     kalbėti
+vnp1s u      $ # aš  kalbu
+vnp2s i      $ # tu  kalbi
+vnp3s a      $ # jis kalba
+vnp1p ame    $ # mes kalbame
+vnp2p ate    $ # jūs kalbate
+vnp3p a      $ # jie kalba
+vns1s ėjau   $ # aš  kalbėjau
+vns2s ėjai   $ # tu  kalbėjai
+vns3s ėjo    $ # jis kalbėjo
+vns1p ėjome  $ # mes kalbėjome
+vns2p ėjote  $ # jūs kalbėjote
+vns3p ėjo    $ # jie kalbėjo
+vnf1s ėsiu   $ # aš  kalbėsiu
+vnf2s ėsi    $ # tu  kalbėsi
+vnf3s ės     $ # jis kalbės
+vnf1p ėsime  $ # mes kalbėsime
+vnf2p ėsite  $ # jūs kalbėsite
+vnf3p ės     $ # jie kalbės
+vmp2s ėk $
+vmp2p ėkite $
+
+@rule A -uoti STUDIJUOTI STUDI- važiuoti važi
+vni   uoti    $ #     studijuotiti
+vnp1s uoju      $ # aš  studijuo-ju
+vnp2s uoji      $ # tu  -ji
+vnp3s uoja      $ # jis -ja
+vnp1p uojame    $ # mes -jame
+vnp2p uojate    $ # jūs -jate
+vnp3p uoja      $ # jie -ja
+vns1s avau   $ # aš  
+vns2s avai   $ # tu  
+vns3s avo    $ # jis 
+vns1p avome  $ # mes 
+vns2p avote  $ # jūs 
+vns3p avo    $ # jie 
+vnf1s uosiu   $ # aš 
+vnf2s uosi    $ # tu 
+vnf3s uos     $ # jis
+vnf1p uosime  $ # mes
+vnf2p uosite  $ # jūs
+vnf3p uos     $ # jie
+vmp2s uok $
+vmp2p uokite $
+
+@rule -AUTI PARAGAUTI
+vni   uti    $ #     paraga-uti
+vnp1s uju      $ # aš  studijuo-ju
+vnp2s uji      $ # tu  -ji
+vnp3s uja      $ # jis -ja
+vnp1p ujame    $ # mes -jame
+vnp2p ujate    $ # jūs -jate
+vnp3p uja      $ # jie -ja
+vns1s vau   $ # aš  kalbėjau
+vns2s vai   $ # tu  kalbėjai
+vns3s vo    $ # jis kalbėjo
+vns1p vome  $ # mes kalbėjome
+vns2p vote  $ # jūs kalbėjote
+vns3p vo    $ # jie kalbėjo
+vnf1s usiu   $ # aš  kalbėsiu
+vnf2s usi    $ # tu  kalbėsi
+vnf3s us     $ # jis kalbės
+vnf1p usime  $ # mes kalbėsime
+vnf2p usite  $ # jūs kalbėsite
+vnf3p us     $ # jie kalbės
+vmp2s uk $
+vmp2p ukite $
+
+
+@rule EITI
+vni   eiti $
+vnp1s einu $
+vnp2s eini $
+vnp3s eina $
+vnp1p einame $
+vnp2p einate $
+vnp3p eina $
+vns1s ėjau $
+vns2s ėjai $
+vns3s ėjo $
+vns1p ėjome $
+vns2p ėjote $
+vns3p ėjo $
+vnf1s eisiu $
+vnf2s eisi $
+vnf3s eis $
+vnf1p eisime $
+vnf2p eisite $ 
+vnf3p eis $
+vmp2s eik  $
+vmp2p eikite $ 
+
+@rule IMTI
+vni   imti $
+vnp1s imu $
+vnp2s imi $
+vnp3s ima $
+vnp1p imame $
+vnp2p imate $
+vnp3p ima $
+vns1s ėmiau $
+vns2s ėmei $
+vns3s ėmė $
+vns1p ėmėme $ 
+vns2p ėmėte $
+vns3p ėmė $
+vnf1s imsiu $
+vnf2s imsi $
+vnf3s ims $
+vnf1p imsime $
+vnf2p imsite $
+vnf3p ims $
+vmp2s imk  $
+vmp2p imkite $
+
+@rule pūsti
+vni 	pūsti   
+vnp1s pučiu
+vnp2s puti
+vnp3s pučia
+vnp1p pučiame
+vnp2p pučiate
+vnp3p pučia
+vns1s pūčiau
+vns2s pūtei
+vns3s pūtė
+vns1p pūtėme
+vns2p pūtėte
+vns3p pūtė
+vnf1s pūsiu
+vnf2s pūsi
+vnf3s pūs
+vnf1p pūsime
+vnf2p pūsite
+vnf3p pūs
+vmp2s pūsk 
+vmp2p pūskite
+
+@rule virti
+vni   virti $
+vnp1s verdu $
+vnp2s verdi $
+vnp3s verda $
+vnp1p verdame $
+vnp2p verdate $
+vnp3p verda $
+vns1s viriau $
+vns2s virei $
+vns3s virė $
+vns1p virėme $
+vns2p virėte $
+vns3p virė $
+vnf1s virsiu $
+vnf2s virsi $
+vnf3s virs $
+vnf1p virsime $
+vnf2p virsite $
+vnf3p virs $
+vmp2s virk  $
+vmp2p virkite $
+
+@rule padėti
+vni   dėti    $ #     studijuotiti
+vnp1s dedu      $ # aš  studijuo-ju
+vnp2s dedi      $ # tu  -ji
+vnp3s deda      $ # jis -ja
+vnp1p dedame    $ # mes -jame
+vnp2p dedate    $ # jūs -jate
+vnp3p deda    $ # jie -ja
+vns1s dėjau   $ # aš  kalbėjau
+vns2s dėjai   $ # tu  kalbėjai
+vns3s dėjo    $ # jis kalbėjo
+vns1p dėjome  $ # mes kalbėjome
+vns2p dėjote  $ # jūs kalbėjote
+vns3p dėjo    $ # jie kalbėjo
+vnf1s dėsiu   $ # aš  kalbėsiu
+vnf2s dėsi    $ # tu  kalbėsi
+vnf3s dės     $ # jis kalbės
+vnf1p dėsime  $ # mes kalbėsime
+vnf2p dėsite  $ # jūs kalbėsite
+vnf3p dės     $ # jie kalbės
+vmp2s dėk $
+vmp2p dėkite $
+
+@rule leisti
+vni   sti     $ #     lei-sti   
+vnp1s džiu    $ # aš  lei-džiu  
+vnp2s di      $ # tu  lei-di    
+vnp3s džia    $ # jis lei-džia  
+vnp1p džiame  $ # mes lei-džiame
+vnp2p džiate  $ # jūs lei-džiate
+vnp3p džia    $ # jie lei-džia  
+vns1s dau     $ # aš  lei-dau   
+vns2s dai     $ # tu  lei-dai   
+vns3s do      $ # jis lei-do    
+vns1p dome    $ # mes lei-dome  
+vns2p dote    $ # jūs lei-dote  
+vns3p do      $ # jie lei-do    
+vnf1s siu     $ # aš  lei-siu   
+vnf2s si      $ # tu  lei-si    
+vnf3s s       $ # jis lei-s     
+vnf1p sime    $ # mes lei-sime  
+vnf2p site    $ # jūs lei-site  
+vnf3p s       $ # jie lei-s     
+
+@rule I -ETI turėti / galėti
+vni   ėti    $ #     
+vnp1s iu      $ # aš  turiu
+vnp2s i      $ # tu  kalbi
+vnp3s i      $ # jis kalba
+vnp1p ime    $ # mes kalbame
+vnp2p ite    $ # jūs kalbate
+vnp3p i      $ # jie kalba
+vns1s ėjau   $ # aš  kalbėjau
+vns2s ėjai   $ # tu  kalbėjai
+vns3s ėjo    $ # jis kalbėjo
+vns1p ėjome  $ # mes kalbėjome
+vns2p ėjote  $ # jūs kalbėjote
+vns3p ėjo    $ # jie kalbėjo
+vnf1s ėsiu   $ # aš  kalbėsiu
+vnf2s ėsi    $ # tu  kalbėsi
+vnf3s ės     $ # jis kalbės
+vnf1p ėsime  $ # mes kalbėsime
+vnf2p ėsite  $ # jūs kalbėsite
+vnf3p ės     $ # jie kalbės
+vmp2s ėk $
+vmp2p ėkite $
+
+@rule IA -ti laukti
+vni   ti      $ #     lauk-ti
+vnp1s iu      $ # aš  lauk-iu
+vnp2s i       $ # tu  
+vnp3s ia      $ # jis
+vnp1p iame    $ # mes
+vnp2p iate    $ # jūs
+vnp3p ia      $ # jie
+vns1s iau     $ # aš  
+vns2s ei      $ # tu  
+vns3s ė       $ # jis 
+vns1p ėme     $ # mes 
+vns2p ėte     $ # jūs 
+vns3p ė       $ # jie 
+vnf1s siu      $ # aš 
+vnf2s si      $ # tu 
+vnf3s s       $ # jis
+vnf1p sime    $ # mes
+vnf2p site    $ # jūs
+vnf3p s     $ # jie
+vmp2s .       $
+vmp2p ite     $
+
+
+@rule YTI 
+vni   yti    $ #     rašyti
+vnp1s au     $ # aš  rašau
+vnp2s ai     $ # tu  rašai
+vnp3s o      $ # jis rašo
+vnp1p ome    $ # mes rašome
+vnp2p ote    $ # jūs rašote
+vnp3p o      $ # jie rašo
+vns1s iau    $ # aš  rašiau
+vns2s ei     $ # tu  rašei
+vns3s ė      $ # jis rašė
+vns1p ėme    $ # mes rašėme
+vns2p ėte    $ # jūs rašėte
+vns3p ė      $ # jie rašė
+vnf1s ysiu   $ # aš  rašysiu
+vnf2s ysi    $ # tu  rašysi
+vnf3s ys     $ # jis rašys
+vnf1p ysiu   $ # mes rašysime
+vnf2p ysi    $ # jūs rašysite
+vnf3p ys     $ # jie rašys
+vmp2s yk $
+vmp2p ykite $
+
+@rule TYTI skaytiti matyti
+vni   tyti    $ #     rašyti
+vnp1s tau     $ # aš  rašau
+vnp2s tai     $ # tu  rašai
+vnp3s to      $ # jis rašo
+vnp1p tome    $ # mes rašome
+vnp2p tote    $ # jūs rašote
+vnp3p to      $ # jie rašo
+vns1s čiau    $ # aš  rašiau
+vns2s tei     $ # tu  rašei
+vns3s tė      $ # jis rašė
+vns1p tėme    $ # mes rašėme
+vns2p tėte    $ # jūs rašėte
+vns3p tė      $ # jie rašė
+vnf1s tysiu   $ # aš  rašysiu
+vnf2s tysi    $ # tu  rašysi
+vnf3s tys     $ # jis rašys
+vnf1p tysime   $ # mes rašysime
+vnf2p tysite    $ # jūs rašysite
+vnf3p tys     $ # jie rašys
+vmp2s tyk $
+vmp2p tykite $
+
+@rule  BIJOTI
+vni   oti    $ #     bijoti
+vnp1s au     $ # aš  bijau
+vnp2s ai     $ # tu  bijai
+vnp3s o      $ # jis bijo
+vnp1p ome    $ # mes bijome
+vnp2p ote    $ # jūs bijote
+vnp3p o      $ # jie bijo
+vns1s ojau   $ # aš  bijojau
+vns2s ojai   $ # tu  bijojai
+vns3s ojo    $ # jis bijojo
+vns1p ojome  $ # mes bijojome
+vns2p ojote  $ # jūs bijojote
+vns3p ojo    $ # jie bijojo
+vnf1s osiu   $ # aš  bijosiu
+vnf2s osi    $ # tu  bijosi
+vnf3s os     $ # jis bijos
+vnf1p osime  $ # mes bijosime
+vnf2p osite  $ # jūs bijosite
+vnf3p os     $ # jie bijos
+
+@rule  imti / priimti
+vni   imti    $ #     
+vnp1s imu     $ # aš  bijau
+vnp2s imi    $ # tu  bijai
+vnp3s ima     $ # jis bijo
+vnp1p imame    $ # mes bijome
+vnp2p imate  $ # jūs bijote
+vnp3p ima     $ # jie bijo
+vns1s ėmiau   $ # aš  bijojau
+vns2s ėmei   $ # tu  bijojai
+vns3s ėmė    $ # jis bijojo
+vns1p ėmėme  $ # mes bijojome
+vns2p ėmėte  $ # jūs bijojote
+vns3p ėmė    $ # jie bijojo
+vnf1s imsiu   $ # aš  bijosiu
+vnf2s imsi    $ # tu  bijosi
+vnf3s ims    $ # jis bijos
+vnf1p imsime  $ # mes bijosime
+vnf2p imsite  $ # jūs bijosite
+vnf3p ims     $ # jie bijos
+vmp2s imk $
+vmp2p imkite $
+
+@rule REIKŠTI
+vni   reikšti    $ #     
+vnp1s reiškiu     $ # aš  bijau
+vnp2s reiški   $ # tu  bijai
+vnp3s reiškia     $ # jis bijo
+vnp1p reiškiame    $ # mes bijome
+vnp2p reiškiate  $ # jūs bijote
+vnp3p reiškia     $ # jie bijo
+vns1s reiškiau   $ # aš  bijojau
+vns2s reiškei   $ # tu  bijojai
+vns3s reiškė    $ # jis bijojo
+vns1p reiškėme  $ # mes bijojome
+vns2p reiškėte  $ # jūs bijojote
+vns3p reiškė    $ # jie bijojo
+vnf1s reikšiu   $ # aš  bijosiu
+vnf2s reikši    $ # tu  bijosi
+vnf3s reikš    $ # jis bijos
+vnf1p reikšime  $ # mes bijosime
+vnf2p reikšite  $ # jūs bijosite
+vnf3p reikš     $ # jie bijos
+vmp2s reikšk $
+vmp2p reikškite $
+
+@rule TIKTI SUTIKTI SUSITIKTI
+vni   tikti    $ #     
+vnp1s tinku     $ # aš  bijau
+vnp2s tinki   $ # tu  bijai
+vnp3s tinka     $ # jis bijo
+vnp1p tinkame    $ # mes bijome
+vnp2p tinkate  $ # jūs bijote
+vnp3p tinka     $ # jie bijo
+vns1s tikau   $ # aš  bijojau
+vns2s tikai   $ # tu  bijojai
+vns3s tiko    $ # jis bijojo
+vns1p tikome  $ # mes bijojome
+vns2p tikote  $ # jūs bijojote
+vns3p tiko    $ # jie bijojo
+vnf1s tiksiu   $ # aš  bijosiu
+vnf2s tiksi    $ # tu  bijosi
+vnf3s tiks    $ # jis bijos
+vnf1p tiksime  $ # mes bijosime
+vnf2p tiksite  $ # jūs bijosite
+vnf3p tiks     $ # jie bijos
+vmp2s tik $
+vmp2p tikite $
+
+@rule KILTI ISKILTI
+vni   kilti    $ #     
+vnp1s kylu     $ # aš  bijau
+vnp2s kyli   $ # tu  bijai
+vnp3s kyla     $ # jis bijo
+vnp1p kylame    $ # mes bijome
+vnp2p kylate  $ # jūs bijote
+vnp3p kyla     $ # jie bijo
+vns1s kilau   $ # aš  bijojau
+vns2s kilai   $ # tu  bijojai
+vns3s kilo    $ # jis bijojo
+vns1p kilome  $ # mes bijojome
+vns2p kilote  $ # jūs bijojote
+vns3p kilo    $ # jie bijojo
+vnf1s kilsiu   $ # aš  bijosiu
+vnf2s kilsi    $ # tu  bijosi
+vnf3s kils    $ # jis bijos
+vnf1p kilsime  $ # mes bijosime
+vnf2p kilsite  $ # jūs bijosite
+vnf3p kils     $ # jie bijos
+vmp2s kilk $
+vmp2p kilkite $
+
+@rule mušti
+vni   ti    $ #     muš /
+vnp1s u      $ # aš 
+vnp2s i      $ # tu 
+vnp3s a      $ # jis
+vnp1p ame    $ # mes
+vnp2p ate    $ # jūs
+vnp3p a      $ # jie
+vns1s iau   $ # aš  
+vns2s ei   $ # tu  
+vns3s ė    $ # jis 
+vns1p ėme  $ # mes 
+vns2p ėte  $ # jūs 
+vns3p ė    $ # jie 
+vnf1s iu   $ # aš  
+vnf2s i    $ # tu  
+vnf3s .     $ # jis
+vnf1p ime  $ # mes 
+vnf2p ite  $ # jūs 
+vnf3p .     $ # jie 
+vmp2s k $
+vmp2p kite $
+
+@rule tapti
+vni   pti    $ #     ta pti
+vnp1s mpu      $ # aš 
+vnp2s mpi      $ # tu 
+vnp3s mpa      $ # jis
+vnp1p mpame    $ # mes
+vnp2p mpate    $ # jūs
+vnp3p mpa      $ # jie
+vns1s pau   $ # aš  
+vns2s pai   $ # tu  
+vns3s po    $ # jis 
+vns1p pome  $ # mes 
+vns2p pote  $ # jūs 
+vns3p po    $ # jie 
+vnf1s psiu   $ # aš  
+vnf2s psi    $ # tu  
+vnf3s ps     $ # jis
+vnf1p psime  $ # mes 
+vnf2p psite  $ # jūs 
+vnf3p ps     $ # jie 
+vmp2s pk $
+vmp2p pkite $
+
+@rule JAUSTI
+vni   sti    $ #     jau 
+vnp1s čiu      $ # aš 
+vnp2s ti      $ # tu 
+vnp3s čia      $ # jis
+vnp1p čiame    $ # mes
+vnp2p čiate    $ # jūs
+vnp3p čia      $ # jie
+vns1s čiau   $ # aš  
+vns2s tei   $ # tu  
+vns3s tė   $ # jis 
+vns1p tėme  $ # mes 
+vns2p tėte  $ # jūs 
+vns3p tė    $ # jie 
+vnf1s siu   $ # aš  
+vnf2s si    $ # tu  
+vnf3s s     $ # jis
+vnf1p sime  $ # mes 
+vnf2p site  $ # jūs 
+vnf3p s     $ # jie 
+vmp2s sk $
+vmp2p skite $
+
+@rule PIRKTI
+vni   pirkti    $ #     
+vnp1s perku      $ # aš 
+vnp2s perki      $ # tu 
+vnp3s perka      $ # jis
+vnp1p perkame    $ # mes
+vnp2p perkate    $ # jūs
+vnp3p perka      $ # jie
+vns1s pirkau   $ # aš  
+vns2s pirkai   $ # tu  
+vns3s pirko   $ # jis 
+vns1p pirkome  $ # mes 
+vns2p pirkote  $ # jūs 
+vns3p pirko    $ # jie 
+vnf1s pirksiu   $ # aš  
+vnf2s pirksi    $ # tu  
+vnf3s pirks     $ # jis
+vnf1p pirksime  $ # mes 
+vnf2p pirksite  $ # jūs 
+vnf3p pirks     $ # jie 
+vmp2s pirk $
+vmp2p pirkite $
+
+@rule RINKTI
+vni   rinkti    $ #     
+vnp1s renku      $ # aš 
+vnp2s renki      $ # tu 
+vnp3s renka      $ # jis
+vnp1p renkame    $ # mes
+vnp2p renkate    $ # jūs
+vnp3p renka      $ # jie
+vns1s rinkau   $ # aš  
+vns2s rinkai   $ # tu  
+vns3s rinko   $ # jis 
+vns1p rinkome  $ # mes 
+vns2p rinkote  $ # jūs 
+vns3p rinko    $ # jie 
+vnf1s rinksiu   $ # aš  
+vnf2s rinksi    $ # tu  
+vnf3s rinks     $ # jis
+vnf1p rinksime  $ # mes 
+vnf2p rinksite  $ # jūs 
+vnf3p rinks     $ # jie 
+vmp2s rink $
+vmp2p rinkite $
+
+@rule GERTI
+vni   gerti    $ 
+vnp1s geriu    $
+vnp2s geri     $
+vnp3s geria    $
+vnp1p geriame  $
+vnp2p geriate  $
+vnp3p geria    $
+vns1s gėriau   $
+vns2s gėrei   $
+vns3s gėrė   $
+vns1p gėrėme  $
+vns2p gėrėte  $
+vns3p gėrė    $
+vnf1s gersiu  $
+vnf2s gersi   $
+vnf3s gers    $
+vnf1p gersime $
+vnf2p gersite $
+vnf3p gers    $
+vmp2s gerk $
+vmp2p gerkite $ 
+
+
+@rule KRISTI
+vni   kristi
+vnp1s krentu  
+vnp2s krenti  
+vnp3s krenta  
+vnp1p krentame
+vnp2p krentate
+vnp3p krenta
+vns1s kritau  
+vns2s kritai   
+vns3s krito   
+vns1p kritome
+vns2p kritote
+vns3p krito  
+vnf1s krisiu 
+vnf2s krisi  
+vnf3s kris   
+vnf1p krisime
+vnf2p krisite
+vnf3p kris  
+vmp2s krisk 
+vmp2p kriskite 
+
+@rule SKRISTI
+vni   skristi    $
+vnp1s skrendu    $
+vnp2s skrendi    $
+vnp3s skrenda    $
+vnp1p skrendame  $
+vnp2p skrendate  $
+vnp3p skrenda    $
+vns1s skridau    $
+vns2s skridai    $
+vns3s skrido     $
+vns1p skridome   $
+vns2p skridote  $
+vns3p skrido     $
+vnf1s skrisiu    $
+vnf2s skrisi     $
+vnf3s skris      $
+vnf1p skrisime  $
+vnf2p skrisite  $
+vnf3p skris     $
+vmp2s skrisk     $
+vmp2p skriskite   $
+
+@rule RASTI
+vni   rasti $
+vnp1s randu $
+vnp2s randi $
+vnp3s randa  $ 
+vnp1p randame $
+vnp2p randate $
+vnp3p randa  $
+vns1s radau   $
+vns2s radai   $
+vns3s rado   $
+vns1p radome $
+vns2p radote $
+vns3p rado   $
+vnf1s rasiu  $
+vnf2s rasi   $
+vnf3s ras    $
+vnf1p rasime $
+vnf2p rasite $
+vnf3p ras   $
+vmp2s rask  $
+vmp2p raskite $
+
+@rule girdėti 
+vni   ėti    $ #     
+vnp1s žiu      $ # aš  turiu
+vnp2s i      $ # tu  kalbi
+vnp3s i      $ # jis kalba
+vnp1p ime    $ # mes kalbame
+vnp2p ite    $ # jūs kalbate
+vnp3p i      $ # jie kalba
+vns1s ėjau   $ # aš  kalbėjau
+vns2s ėjai   $ # tu  kalbėjai
+vns3s ėjo    $ # jis kalbėjo
+vns1p ėjome  $ # mes kalbėjome
+vns2p ėjote  $ # jūs kalbėjote
+vns3p ėjo    $ # jie kalbėjo
+vnf1s ėsiu   $ # aš  kalbėsiu
+vnf2s ėsi    $ # tu  kalbėsi
+vnf3s ės     $ # jis kalbės
+vnf1p ėsime  $ # mes kalbėsime
+vnf2p ėsite  $ # jūs kalbėsite
+vnf3p ės     $ # jie kalbės
+vmp2s ėk $
+vmp2p ėkite $
+
+@rule gauti 
+vni   uti    $ #     ga-uti
+vnp1s unu      $ # aš  ga-unu
+vnp2s uni      $ # tu  kalbi
+vnp3s una     $ # jis kalba
+vnp1p uname    $ # mes kalbame
+vnp2p unate    $ # jūs kalbate
+vnp3p una      $ # jie kalba
+vns1s vau  $ # aš  kalbėjau
+vns2s vai  $ # tu  kalbėjai
+vns3s vo    $ # jis kalbėjo
+vns1p vome  $ # mes kalbėjome
+vns2p vote  $ # jūs kalbėjote
+vns3p vo    $ # jie kalbėjo
+vnf1s usiu   $ # aš  kalbėsiu
+vnf2s usi    $ # tu  kalbėsi
+vnf3s us    $ # jis kalbės
+vnf1p usime  $ # mes kalbėsime
+vnf2p usite  $ # jūs kalbėsite
+vnf3p us     $ # jie kalbės
+vmp2s uk $
+vmp2p ukite $
+
+@rule baigti
+vni   gti    $ #     bai-gti
+vnp1s giu      $ # aš  ga-unu
+vnp2s gi      $ # tu  kalbi
+vnp3s gia     $ # jis kalba
+vnp1p giame    $ # mes kalbame
+vnp2p giate    $ # jūs kalbate
+vnp3p gia      $ # jie kalba
+vns1s giau  $ # aš  kalbėjau
+vns2s gei  $ # tu  kalbėjai
+vns3s gė    $ # jis kalbėjo
+vns1p gėme  $ # mes kalbėjome
+vns2p gėte  $ # jūs kalbėjote
+vns3p gė    $ # jie kalbėjo
+vnf1s gsiu   $ # aš  kalbėsiu
+vnf2s gsi    $ # tu  kalbėsi
+vnf3s gs    $ # jis kalbės
+vnf1p gsime  $ # mes kalbėsime
+vnf2p gsite  $ # jūs kalbėsite
+vnf3p gs     $ # jie kalbės
+vmp2s k $
+vmp2p kite $
+
+@rule vykti
+vni   ti    $ #     vyk-ti
+vnp1s stu      $ # aš  ga-unu
+vnp2s sti      $ # tu  kalbi
+vnp3s sta     $ # jis kalba
+vnp1p stame    $ # mes kalbame
+vnp2p state    $ # jūs kalbate
+vnp3p sta      $ # jie kalba
+vns1s au  $ # aš  kalbėjau
+vns2s ai  $ # tu  kalbėjai
+vns3s o    $ # jis kalbėjo
+vns1p ome  $ # mes kalbėjome
+vns2p ote  $ # jūs kalbėjote
+vns3p o    $ # jie kalbėjo
+vnf1s siu   $ # aš  kalbėsiu
+vnf2s si    $ # tu  kalbėsi
+vnf3s s    $ # jis kalbės
+vnf1p sime  $ # mes kalbėsime
+vnf2p site  $ # jūs kalbėsite
+vnf3p s     $ # jie kalbės
+vmp2s . $
+vmp2p ite $
+
+
+
+# -----------------------------------------
+# ------------ REFLEXIVE / JAUSTIS
+# -----------------------------------------
+# create a more general rule
+
+@rule jaustis reflexive
+vni 	jaustis
+vnp1s jaučiuosi
+vnp2s jautiesi
+vnp3s jaučiasi
+vnp1p jaučiamės
+vnp2p jaučiatės
+vnp3p jaučiasi
+
+
+
+# -----------------------------------------
+# ------------ ADJECTIVES
+# -----------------------------------------
+
+@rule ADJECTIVE
+amsnp tus        $  # kas absoliutus
+amsgp taus       $  # ko  absoliutaus
+amsdp čiam       $  # kam absoliučiam
+amsap tų         $  # ką  absoliutų
+amsbp čiu        $  # kuo absoliučiu
+amslp čiame      $  # kur absoliučiame
+amsnp tūs        $  # kas absoliutūs
+amsgp čių        $  # ko  absoliučių
+amsdp tiems      $  # kam absoliutiems
+amsap čius       $  # ką  absoliučius
+amsbp čiais      $  # kuo absoliučiais
+amslp čiuose     $  # kur absoliučiuose
+amsnc tesnis     $  # kas absoliutesnis
+amsgc tesnio     $  # ko  absoliutesnio
+amsdc tesniam    $  # kam absoliutesniam
+amsac tesnį      $  # ką  absoliutesnį
+amsbc tesniu     $  # kuo absoliutesniu
+amslc tesniame   $  # kur absoliutesniame
+amsnc tesni      $  # kas absoliutesni
+amsgc tesnių     $  # ko  absoliutesnių
+amsdc tesniems   $  # kam absoliutesniems
+amsac tesnius    $  # ką  absoliutesnius
+amsbc tesniais   $  # kuo absoliutesniais
+amslc tesniuose  $  # kur absoliutesniuose
+amsns čiausias   $  # kas absoliučiausias
+amsgs čiausio    $  # ko  absoliučiausio
+amsds čiausiam   $  # kam absoliučiausiam
+amsas čiausią    $  # ką  absoliučiausią
+amsbs čiausiu    $  # kuo absoliučiausiu
+amsls čiausiame  $  # kur absoliučiausiame
+amsns čiausi     $  # kas absoliučiausi
+amsgs čiausių    $  # ko  absoliučiausių
+amsds čiausiems  $  # kam absoliučiausiems
+amsas čiausius   $  # ką  absoliučiausius
+amsbs čiausiais  $  # kuo absoliučiausiais
+amsls čiausiuose $  # kur absoliučiausiuose
+afsnp ti         $  # kas absoliuti
+afsgp čios       $  # ko  absoliučios
+afsdp čiai       $  # kam absoliučiai
+afsap čią        $  # ką  absoliučią
+afsbp čia        $  # kuo absoliučia
+afslp čioje      $  # kur absoliučioje
+afsnp čios       $  # kas absoliučios
+afsgp čių        $  # ko  absoliučių
+afsdp čioms      $  # kam absoliučioms
+afsap čias       $  # ką  absoliučias
+afsbp čiomis     $  # kuo absoliučiomis
+afslp čiose      $  # kur absoliučiose
+afsnc tesnė      $  # kas absoliutesnė
+afsgc tesnės     $  # ko  absoliutesnės
+afsdc tesnei     $  # kam absoliutesnei
+afsac tesnę      $  # ką  absoliutesnę
+afsbc tesne      $  # kuo absoliutesne
+afslc tesnėje    $  # kur absoliutesnėje
+afsnc tesnės     $  # kas absoliutesnės
+afsgc tesnių     $  # ko  absoliutesnių
+afsdc tesnėms    $  # kam absoliutesnėms
+afsac tesnes     $  # ką  absoliutesnes
+afsbc tesnėmis   $  # kuo absoliutesnėmis
+afslc tesnėse    $  # kur absoliutesnėse
+afsns čiausia    $  # kas absoliučiausia
+afsgs čiausios   $  # ko  absoliučiausios
+afsds čiausiai   $  # kam absoliučiausiai
+afsas čiausią    $  # ką  absoliučiausią
+afsbs čiausia    $  # kuo absoliučiausia
+afsls čiausioje  $  # kur absoliučiausioje
+afsns čiausios   $  # kas absoliučiausios
+afsgs čiausių    $  # ko  absoliučiausių
+afsds čiausioms  $  # kam absoliučiausioms
+afsas čiausias   $  # ką  absoliučiausias
+afsbs čiausiomis $  # kuo absoliučiausiomis
+afsls čiausiose  $  # kur absoliučiausiose
+
+@rule GERAS GERA
+amsn  as     $
+amsg  o      $
+amsd  am     $
+amsa  ą      $
+amsb  u      $
+amsl  ame    $
+ampn  i      $
+ampg  ų      $
+ampd  iems   $
+ampa  us     $
+ampb  ais    $
+ampl  uose   $
+afsn  a      $
+afsg  os     $
+afsd  ai     $
+afsa  ą      $
+afsb  a      $
+afsl  oje    $
+afpn  os     $
+afpg  ų      $
+afpd  oms    $
+afpa  as     $
+afpb  omis   $
+afpl  ose    $
+****  ai     >?
+****  iau    >?
+****  esnis   >?
+****  esnė   >?
+
+@rule Žalias Žalia
+amsn  ias     $
+amsg  io      $
+amsd  iam     $
+amsa  ią      $
+amsb  iu      $
+amsl  iame    $
+ampn  i       $
+ampg  ių      $
+ampd  iems    $
+ampa  ius     $
+ampb  iais    $
+ampl  iuose   $
+afsn  ia      $
+afsg  ios     $
+afsd  iai     $
+afsa  ią      $
+afsb  ia      $
+afsl  ioje    $
+afpn  ios     $
+afpg  ių      $
+afpd  ioms    $
+afpa  ias     $
+afpb  iomis   $
+afpl  iose    $
+****  iai   >?
+****  iau   >?
+****  esnis   >?
+****  esnė   >?
+
+@rule Gražus Graži
+amsn  us     $
+amsg  aus      $
+amsd  iam     $
+amsa  ų      $
+amsb  iu      $
+amsl  iame      $
+amsn  ūs     $
+amsg  ių      $
+amsd  iems    $
+amsa  ius     $
+amsb  iais    $
+amsl  iuose   $
+afsn  ia      $
+afsg  ios     $
+afsd  iai     $
+afsa  ią      $
+afsb  ia      $
+afsl  ioje    $
+afsn  ios     $
+afsg  ių      $
+afsd  ioms    $
+afsa  ias     $
+afsb  iomis   $
+afsl  iose    $
+****  iai   >?
+****  iau   >?
+****  esnis   >?
+****  esnė   >?
+
+@rule Medinis Medinė
+amsn  is     $
+amsg  io      $
+amsd  iam     $
+amsa  į    $
+amsb  iu	$
+amsl  iam	$
+ampn  iai	$
+ampg  ių	$
+ampd  iams	$
+ampa  ius	$
+ampb  iais	$
+ampl  iuose	$
+afsn  ė	$
+afsg  ės 	$   
+afsd  ei	$
+afsa  ę      	$
+afsb  e     	$
+afsl  ėje   	$
+afpn  ės    	$
+afpg  ių    	$
+afpd  ėms   	$
+afpa  es    	$
+afpb  ėmis  	$
+afpl  ėse    	$
+
+# ------------ ADJECTIVES EXCEPTIONS
+
+@rule Didelis Didelė
+amsn  didelis     
+amsg  didelio      
+amsd  dideliam     
+amsa  didelį      
+amsb  dideliu     
+amsl  dideliame   
+ampn  dideli     
+ampg  didelių    
+ampd  dideliems  
+ampa  didelius   
+ampb  dideliais  
+ampl  dideliuose 
+afsn  didelė     
+afsg  didelės    
+afsd  dideliai
+afsa  didelę      
+afsb  didele     
+afsl  didelėje   
+afpn  didelės    
+afpg  didelių    
+afpd  didelėms   
+afpa  dideles    
+afpb  didelėmis  
+afpl  didelėse 
+
+# ------------ ADJECTIVES PARTICIPLES
+
+@rule pavarges pavargusi
+amsn  ęs     $
+afsn  usi	$
+
+
+# -----------------------------------------
+# ------------ NAMES 
+# -----------------------------------------
+@rule masculine AS
+nmsn  as     $
+nmsg  o      $
+nmsd  ui     $
+nmsa  ą      $
+nmsb  u      $
+nmsl  e      $
+nmsn  ai     $
+nmsg  ų      $
+nmsd  ams    $
+nmsa  us     $
+nmsb  ais    $
+nmsl  uose   $
+nfsn  a      $
+nfsg  os     $
+nfsd  ai     $
+nfsa  ą      $
+nfsb  a      $
+nfsl  oje    $
+nfsn  os     $
+nfsg  ų      $
+nfsd  oms    $
+nfsa  as     $
+nfsb  omis   $
+nfsl  ose    $
+
+@rule Masculine AS 
+nmsn  as     $
+nmsg  o      $
+nmsd  ui     $
+nmsa  ą      $
+nmsb  u      $
+nmsl  e      $
+nmsn  ai     $
+nmsg  ų      $
+nmsd  ams    $
+nmsa  us     $
+nmsb  ais    $
+nmsl  uose   $
+****  eliuk  >?
+****  uk     >?
+
+@rule Masculine IAS 
+nmsn  ias    $
+nmsg  io     $
+nmsd  iui    $
+nmsa  ią     $
+nmsb  iu     $
+nmsl  yje    $
+nmsn  iai    $
+nmsg  ių     $
+nmsd  iams   $
+nmsa  ius    $
+nmsb  iais   $
+nmsl  iuose  $
+
+@rule Masculine IS
+nmsn  is     $
+nmsg  io     $
+nmsd  iui    $
+nmsa  į      $
+nmsb  iu     $
+nmsl  yje    $
+nmsl  yj	 >?
+nmsn  iai    $
+nmsg  ių     $
+nmsd  iams   $
+nmsa  ius    $
+nmsb  iais   $
+nmsl  iuose  $
+****  el     >?
+
+@rule Masculine tis (Amerikietis)
+nmsn  tis     $
+nmsg  čio     $
+nmsd  čiui    $
+nmsa  į       $
+nmsb  čiu     $
+nmsl  yje     $
+nmsl  yj	 >?
+nmsn  čiai    $
+nmsg  čių     $
+nmsd  čiams   $
+nmsa  čius    $
+nmsb  čiais   $
+nmsl  čiuose  $
+****  el     >?
+
+@rule Masculine dis (medis)
+nmsn  is     $
+nmsg  žio     $
+nmsd  žiui    $
+nmsa  į      $
+nmsb  žiu     $
+nmsl  yje    $
+nmsl  yj	 >?
+nmsn  žiai    $
+nmsg  žių     $
+nmsd  žiams   $
+nmsa  žius    $
+nmsb  žiais   $
+nmsl  žiuose  $
+****  el     >?
+
+@rule Masculine YS
+nmsn  ys     $
+nmsg  io     $
+nmsd  iui    $
+nmsa  į      $
+nmsb  iu     $
+nmsl  yje    $
+nmsl  yj	 >?
+nmsn  iai    $
+nmsg  ių     $
+nmsd  iams   $
+nmsa  ius    $
+nmsb  iais   $
+nmsl  iuose  $
+
+@rule FEM A -IA
+nfsn  a    $
+nfsg  os     $
+nfsd  ai    $
+nfsa  ą     $
+nfsb  a     $
+nfsl  oje   $
+nfsl  oj	 >?
+nfsn  os    $
+nfsg  ų     $
+nfsd  oms   $
+nfsa  as    $
+nfsb  omis   $
+nfsl  ose  $
+
+
+@rule FEM only singular ė
+nfsn  ė      $
+nfsg  ės     $
+nfsd  ei     $
+nfsa  ę      $
+nfsb  e      $
+nfsl  ėje    $
+nfsl  ėj	 >?
+
+@rule FEM only plural ės
+nfsn  ės     $
+nfsg  ių     $
+nfsd  ėms    $
+nfsa  es     $
+nfsb  ėmis   $
+nfsl  ėse    $
+
+@rule FEM ė bedarbistė
+nfsn  tė      $
+nfsg  tės     $
+nfsd  tei     $
+nfsa  tę      $
+nfsb  te      $
+nfsl  tėje    $
+nfsl  tėj    >?
+nfsn  tės     $
+nfsg  čių     $
+nfsd  tėms    $
+nfsa  tes     $
+nfsb  tėmis   $
+nfsl  tėse    $
+
+@rule -dė +masculine dėdė
+nmsn  dė    $    
+nmsg  dės   $    
+nmsd  dei  $    
+nmsa  dę     $    
+nmsb  de     $    
+nmsl  dėje  $    
+nmsl  dėj	 >?
+nmsn  dės   $  
+nmsg  džių   $ 
+nmsd  dėms    $
+nmsa  des     $
+nmsb  dėmis   $
+nmsl  dėse    $
+
+@rule ONLY PLURAL žmones
+nmsn  ės     $
+nmsg  ių    $
+nmsd  ėms    $
+nmsa  es     $
+nmsb  ėmis   $
+nmsl  ėse  $
+
+@rule FEM in IS 
+nfsn  is     $
+nfsg  ies    $
+nfsd  iai    $
+nfsa  į      $
+nfsb  imi    $
+nfsl  yje    $
+nfsl  yj    >?
+nfsn  ys     $
+nfsg  ių     $
+nfsd  ims    $
+nfsa  is     $
+nfsb  imis   $
+nfsl  yse    $
+
+@rule FEM in TIS / STOTIS
+nfsn  tis     $
+nfsg  ties    $
+nfsd  čiai    $
+nfsa  tį      $
+nfsb  timi    $
+nfsl  tyje    $
+nfsl  tyj    >?
+nfsn  tys     $
+nfsg  čių     $
+nfsd  tims    $
+nfsa  tis     $
+nfsb  timis   $
+nfsl  tyse    $
+
+@rule MASC in TIS / DANTIS / same as STOTIS
+n*sn  tis     $
+n*sg  ties    $
+n*sd  čiui    $ # here is specific iui instead of iai
+n*sa  tį      $
+n*sb  timi    $
+n*sl  tyje    $
+n*sl  tyj    >?
+n*sn  tys     $
+n*sg  tų     $  # here drop the i
+n*sd  tims    $
+n*sa  tis     $
+n*sb  timis   $
+n*sl  tyse    $
+
+@rule US Sūnus
+nmsn  us     $
+nmsg  aus    $
+nmsd  ui     $
+nmsa  ų      $
+nmsb  umi    $
+nmsl  uje    $
+nmsl  uj    >?
+nmsn  ūs     $
+nmsg  ų      $
+nmsd  ums    $
+nmsa  us     $
+nmsb  umis   $
+nmsl  uose   $
+
+# -----------------------------------------
+# ------------ NAMES  ONLY SINGULAR
+# -----------------------------------------
+
+@rule US  žmogus only singular
+nmsn  us     $
+nmsg  aus    $
+nmsd  ui     $
+nmsa  ų      $
+nmsb  umi    $
+nmsl  uje    $
+nmsl  uj    >?
+
+
+
+@rule  Masculine tis (Lapkritis) Only Singular
+nmsn  tis     $
+nmsg  čio     $
+nmsd  čiui    $
+nmsa  į      $
+nmsb  čiu     $
+nmsl  yje    $
+nmsl  yj    >?
+
+@rule FEM A -IA Europa Lietuva only Singular
+nfsn  a    $
+nfsg  os     $
+nfsd  ai    $
+nfsa  ą     $
+nfsb  a     $
+nfsl  oje    $
+nfsl  oj    >?
+
+
+# -----------------------------------------
+# ------------ NAMES  ONLY PLURAL
+# -----------------------------------------
+@rule AI Miltai only plural
+nmsn  ai     $
+nmsg  ų      $
+nmsd  ams    $
+nmsa  us     $
+nmsb  ais    $
+nmsl  uose   $
+
+@rule OS salotos only plural
+nfsn  os    $
+nfsg  ų     $
+nfsd  oms   $
+nfsa  as    $
+nfsb  omis   $
+nfsl  ose  $
+
+@rule durys 
+n*sn  ys     $
+n*sg  ų     $  # here drop the i
+n*sd  ims    $
+n*sa  is     $
+n*sb  imis   $
+n*sl  yse    $
+
+@rule IUS VAISIUS 
+nmsn  ius    $
+nmsg  iaus   $
+nmsd  iui    $
+nmsa  ių     $
+nmsb  iumi   $
+nmsl  iuje   $
+nmsl  iuj   >?
+nmsn  iai    $ #IAI and not US
+nmsg  ių     $
+nmsd  iams   $ # and not -ums
+nmsa  ius    $
+nmsb  iais   $ #and not -umis
+nmsl  iuose  $
+
+@rule UO VANDUO VAND-
+nmsn  uo     $
+nmsg  ens    $
+nmsd  eniui    $
+nmsa  enį      $
+nmsb  eniu     $
+nmsl  enyje    $
+nmsl  enyj    >?
+nmsn  enys     $
+nmsg  enų      $
+nmsd  enims    $
+nmsa  enis     $
+nmsb  enimis   $
+nmsl  enyse    $
+
+@rule SESUO SES-
+nfsn  sesuo     
+nfsg  sesers 
+nfsd  seseriai
+nfsa  seserį     
+nfsb  seseria     
+nfsl  seseryje 
+nfsl  seseryj >? 
+nfsn  seserys     
+nfsg  seserų      
+nfsd  seserims    
+nfsa  seseris     
+nfsb  seserimis   
+nfsl  seseryse    
+
+@rule šuo 
+nmsn  šuo 
+nmsg  šuns
+nmsd  šuniui
+nmsa  šunį      
+nmsb  šunie    
+nmsl  šunyje    
+nmsl  šunyje    >?
+nmsn  šunys     
+nmsg  šunų      
+nmsd  šunims    
+nmsa  šunis     
+nmsb  šunimis   
+nmsl  šunyse    
+
+@rule moter
+nmsn  moteris
+nmsg  moters
+nmsg  moteries
+nmsd  moteriai
+nmsa  moterį
+nmsb  moterie    
+nmsl  moteryje   
+nmsl  moteryje   >?
+nmsn  moterys     
+nmsg  morerų      
+nmsd  moterims    
+nmsa  moteris     
+nmsb  moterimis   
+nmsl  moteryse    
+
+
+@rule žmonės
+nfsn  žmonės     $
+nfsg  žmonių     $
+nfsd  žmonėms    $
+nfsa  žmones     $
+nfsb  žmonėmis   $
+nfsl  žmonėse    $
+
+# -----------------------------------------
+# ------------ IRREGULAR VERBS 
+# -----------------------------------------
+
+@rule būti
+V     būti
+vnp1s esu    # aš
+vnp2s esi    # tu
+vnp3s yra    # jis
+vnp1p esame  # mes
+vnp2p esate  # jūs
+vnp3p yra    # jie
+vns1s buvau  # aš
+vns2s buvai  # tu
+vns3s buvo   # jis
+vns1p buvome # mes
+vns2p buvote # jūs
+vns3p buvo   # jie
+vnf1s būsiu  # aš
+vnf2s būsi   # tu
+vnf3s bus    # jis
+vnf1p būsime # mes
+vnf2p būsite # jūs
+vnf3p bus    # jie
+vmp2s būk
+vmp2p būkite
+
+@rule nebūti
+V   nebūti
+vnp1s nesu    # aš
+vnp2s nesi    # tu
+vnp3s nėra    # jis
+vnp1p nesame  # mes
+vnp2p nesate  # jūs
+vnp3p nėra    # jie
+vns1s nebuvau  # aš
+vns2s nebuvai  # tu
+vns3s nebuvo   # jis
+vns1p nebuvome # mes
+vns2p nebuvote # jūs
+vns3p nebuvo   # jie
+vnf1s nebūsiu  # aš
+vnf2s nebūsi   # tu
+vnf3s nebus    # jis
+vnf1p nebūsime # mes
+vnf2p nebūsite # jūs
+vnf3p nebus    # jie
+vmp2s nebūk
+vmp2p nebūkite
+
+@rule DUOTI
+V   duoti
+vnp1s duodu    # aš
+vnp2s duodi    # tu
+vnp3s duoda   # jis
+vnp1p duodame  # mes
+vnp2p duodate  # jūs
+vnp3p duoda    # jie
+vns1s daviau  # aš
+vns2s davei  # tu
+vns3s davė   # jis
+vns1p davėme # mes
+vns2p davėte # jūs
+vns3p davė   # jie
+vnf1s duosiu  # aš
+vnf2s duosi   # tu
+vnf3s duos    # jis
+vnf1p duosime # mes
+vnf2p duosite # jūs
+vnf3p duos    # jie
+vmp2s duok
+vmp2p duokite
+
+@rule patikti
+**** patikti
+**** patinka
+**** patiko
+**** patiks
+
+@rule reikėti
+**** reikėti
+**** reikia
+**** reikėjo 
+**** reikės
+
+# Little particle
+
+@rule ačiū
+**** ačiū
+
+@rule ant
+**** ant
+
+@rule apie
+**** apie
+
+@rule aplink
+**** aplink
+
+@rule ar
+**** ar
+
+@rule arba
+**** arba
+
+@rule aukštin
+**** aukštin
+
+@rule bei
+**** bei
+
+@rule be
+**** be
+
+@rule bet
+**** bet
+
+@rule beveik
+**** beveik
+
+@rule čia
+**** čia
+
+@rule dar
+**** dar
+
+@rule dabar
+**** dabar
+
+@rule daug
+**** daug
+**** daugiau
+
+@rule dažnai
+**** dažnai
+
+@rule dėl
+**** dėl
+
+@rule ir
+**** ir
+
+@rule į
+**** į
+
+@rule iki
+**** iki
+
+@rule iš
+**** iš
+
+@rule itin
+**** itin
+
+@rule jau
+**** jau
+
+@rule jei
+**** jei
+**** jeigu
+
+@rule kaip
+**** kaip
+
+@rule kai
+**** kai
+
+@rule kad
+**** kad
+
+@rule kada
+**** kada
+
+@rule kartais
+**** kartais
+
+@rule kartu
+**** kartu
+
+@rule kiek
+**** kiek
+
+@rule kodėl
+**** kodėl
+
+@rule gal
+**** gal
+
+@rule galbūt
+**** galbūt
+
+@rule labai
+**** labai
+
+@rule maždaug
+**** maždaug
+
+@rule ne
+**** ne 
+
+@rule negu
+**** negu
+
+@rule nei
+**** nei
+
+@rule niekada
+**** niekada
+
+@rule nors
+**** nors
+
+@rule nuo
+**** nuo
+
+@rule o
+**** o
+
+@rule pagal
+**** pagal
+
+@rule pas
+**** pas
+
+@rule paskui
+**** paskui
+
+@rule pat
+**** pat
+
+**** pats
+
+@rule per
+**** per
+
+@rule po
+**** po
+
+@rule poryt
+**** poryt
+
+@rule prie
+**** prie
+
+@rule prieš
+**** prieš
+
+@rule pro
+**** pro
+
+@rule retai
+**** retai
+
+@rule rytoj
+**** rytoj
+
+@rule su
+**** su
+
+@rule šiandien
+**** šiandien
+
+@rule tačiau
+**** tačiau
+
+@rule tai
+**** tai
+
+@rule taip
+**** taip
+
+@rule tada
+**** tada
+
+@rule tarp
+**** tarp
+
+@rule ten
+**** ten
+
+@rule tiek
+**** tiek 
+
+@rule tik
+**** tik
+
+@rule to
+**** to
+
+@rule todėl
+**** todėl
+
+@rule už
+**** už
+
+@rule vakar
+**** vakar
+
+@rule vėl
+**** vėl
+
+@rule virš
+**** virš
+
+
+@rule visada
+**** visada
+
+**** ypač
+
+@rule žemyn
+**** žemyn
+
+
+@rule KAS 
+*msn  kas    
+*msg  ko     
+**sd  kam    
+*msa  ką     
+*msb  kuo    
+*msl  kur    
+
+@rule KOKS 
+*msn  koks     
+*msg  kokio    
+**sd  kokiam   
+*msa  kokį     
+*msb  kokiu    
+*msl  kokiame  
+*mpn  kokie    
+*mpg  kokių    
+*mpd  kokiems  
+*mpa  kokius     
+*mpb  kokiais    
+*mpl  kokiuose   
+*fsn  kokia      
+*fsg  kokios     
+*fsd  kokiai     
+*fsa  kokią      
+*fsb  kokia      
+*fsl  kokioje    
+*fpn  kokios     
+*fpg  kokių      
+*fpd  kokioms    
+*fpa  kokias     
+*fpb  kokiomis   
+*fpl  kokiose    
+
+@rule KURIS
+*msn  kuris     
+*msg  kurio     
+**sd  kuriam    
+*msa  kurį      
+*msb  kuriuo    
+*msl  kuriame   
+*mpn  kurie     
+*mpg  kurių     
+*mpd  kuriems   
+*mpa  kurios    
+*mpb  kuriais   
+*mpl  kuriuose  
+*fsn  kuri      
+*fsg  kurios    
+*fsd  kuriai    
+*fsa  kurią     
+*fsb  kuria     
+*fsl  kurioje   
+*fpn  kurios    
+*fpg  kurių     
+*fpd  kurioms   
+*fpa  kurias    
+*fpb  kuriomis  
+*fpl  kuriose   
+
+@rule KELINTAS
+*msn  kelintas     
+*msg  kelinto     
+**sd  kelintam    
+*msa  kelintą      
+*msb  kelintu
+*msl  kelintame   
+*mpn  kelinti     
+*mpg  kelintų     
+*mpd  kelintiems   
+*mpa  kelintus    
+*mpb  kelintais   
+*mpl  kelintuose  
+*fsn  kelinta      
+*fsg  kelintos    
+*fsd  kelintai    
+*fsa  kelintą     
+*fsb  kelinta     
+*fsl  kelintoje   
+*fpn  kelintos    
+*fpg  kelintų     
+*fpd  kelintoms   
+*fpa  kelintas    
+*fpb  kelintomis  
+*fpl  kelintose   
+
+@rule aš
+**sn  aš
+**sg  manęs
+**sd  man
+**sa  mane
+**sb  manimi
+**sl  manyje
+**pn  mes
+**pg  mūsų
+**pd  mums
+**pa  mus
+**pb  mumis
+**pl  mumyse
+
+@rule tu
+**sn  tu
+**sg  tavęs
+**sd  tau
+**sa  tave
+**sb  tavimi
+**sl  tavyje
+**pn  jūs
+**pg  jūsų
+**pd  jums
+**pa  jus
+**pb  jumis
+**pl  jumyse
+
+@rule jis
+**sn  jis
+**sg  jo
+**sd  jam
+**sa  jį
+**sb  juo
+**sl  jame
+**pn  jie
+**pg  jų
+**pd  jiems
+**pa  juos
+**pb  jais
+**pl  juose
+
+@rule ji
+**sn  ji
+**sg  jos
+**sd  jai
+**sa  ją
+**sb  ja
+**sl  joje
+**pn  jos
+**pg  jų
+**pd  joms
+**pa  jas
+**pb  jomis
+**pl  jose
+
+@rule šis
+*msn  šis
+*msg  šio
+*msd  šiam
+*msa  šį
+*msb  šiuo
+*msl  šiame
+*mpn  šie
+*mpg  šių
+*mpd  šiems
+*mpa  šiuos
+*mpb  šiais
+*mpl  šiuose
+*fsn  ši
+*fsg  šios
+*fsd  šiai
+*fsa  šią
+*fsb  šia
+*fsl  šioje
+*fpn  šios
+*fpg  šių
+*fpd  šioms
+*fpa  šias
+*fpb  šiomis
+*fpl  šiose
+
+@rule tas
+*msn  tas
+*msg  to
+*msd  tam
+*msa  tą
+*msb  tuo
+*msl  tame
+*mpn  tie
+*mpg  tų
+*mpd  tiems
+*mpa  tuos
+*mpb  tais
+*mpl  tuose
+*fsn  ta
+*fsg  tos
+*fsd  tai
+*fsa  tą
+*fsb  ta
+*fsl  toje
+*fpn  tos
+*fpg  tų
+*fpd  toms
+*fpa  tas
+*fpb  tomis
+*fpl  tose
+
+@rule anas
+*msn  anas
+*msg  ano
+*msd  anam
+*msa  aną
+*msb  anuo
+*msl  aname
+*mpn  anie
+*mpg  anų
+*mpd  aniems
+*mpa  anuos
+*mpb  anais
+*mpl  anuose
+*fsn  ana
+*fsg  anos
+*fsd  anai
+*fsa  aną
+*fsb  ana
+*fsl  anoje
+*fpn  anos
+*fpg  anų
+*fpd  anoms
+*fpa  anas
+*fpb  anomis
+*fpl  anose
+
+# -----------------------------------------
+# ------------ ADVERBS / COMPARISON
+# -----------------------------------------

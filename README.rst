@@ -4,6 +4,15 @@ Main purpose of this library is to identify given phrase and provide all
 information about that phrase, its grammatical category, part of speech, used
 affixes and etc.
 
+Installing
+==========
+
+On Ubuntu 12.04::
+
+    sudo apt-get install libhunspell-dev
+    make
+    bin/gram žodžiuose
+
 
 How it works?
 =============

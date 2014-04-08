@@ -13,6 +13,7 @@ setup(
     install_requires=[
         'hunspell',
         'PyYAML',
+        'docopt',
     ],
     entry_points = {
         'console_scripts': [

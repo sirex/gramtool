@@ -12,7 +12,7 @@ class Form(object):
         self.stem = stem
 
     def get_word(self, stem):
-        return ''.join(self.prefixes) + stem + ''.join(self.suffixes)
+        return u''.join(self.prefixes) + stem + u''.join(self.suffixes)
 
 
 class Rule(object):
@@ -25,10 +25,10 @@ class Rule(object):
         self.includes = defaultdict(list)
 
     def __str__(self):
-        return self.name.encode('utf-8') or self.key
+        return self.name or self.key
 
     def __repr__(self):
-        return ('<Rule %s: "%s">' % (self.key, self.name)).encode('utf-8')
+        return ('<Rule %s: "%s">' % (self.key, self.name))
 
     def match(self, word):
         pass
@@ -70,14 +70,17 @@ class Grammar(object):
                 return False
         return True
 
-    def boo(self, word):
+    def iter_rules(self, word):
         for stem, suffix, rule in self.find_rules(word):
             forms = rule.build_forms(stem)
             if self.check_spelling(forms):
+                lemma = None
                 for form in rule.forms.values():
-                    if form.get_word(stem) == word:
-                        yield Word(form, stem)
-        #return list(self.find_rules(word))
+                    _word = form.get_word(stem)
+                    if lemma is None:
+                        lemma = Word(form, stem)
+                    if _word == word:
+                        yield lemma, Word(form, stem)
 
 
 class Word(object):
@@ -85,9 +88,12 @@ class Word(object):
         self.form = form
         self.stem = stem
 
+    def __unicode__(self):
+        return self.form.get_word(self.stem)
+
     def __repr__(self):
-        return '<Word %s (%s)>' % (
-            self.form.get_word(self.stem).encode('utf-8'),
+        return u'<Word %s (%s)>' % (
+            self.form.get_word(self.stem),
             self.form.spec,
         )
 

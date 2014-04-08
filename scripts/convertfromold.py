@@ -42,6 +42,14 @@ def parse_form(line):
     raise Exception('Unknown line format: %s' % line)
 
 
+def format_line(pfx, line, sfx):
+    if isinstance(line, tuple):
+        line = ' '.join(line)
+    if sfx:
+        line += '  ' + sfx
+    return line.strip()
+
+
 def convert_line(line):
     pfx, line, sfx = parse_comments(line)
     rule_id = 0
@@ -50,7 +58,7 @@ def convert_line(line):
         line = parse_rule(line, rule_id)
     elif line:
         line = parse_form(line)
-    return pfx, line, sfx
+    return format_line(pfx, line, sfx)
 
 
 def main():

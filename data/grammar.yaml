@@ -1,0 +1,108 @@
+# vi:sw=2 ts=2
+
+
+# Parts of speech
+pos:
+  n: noun          # Daiktavardis
+  a: adjective     # Būdvardis
+  v: verb          # Veiksmažodis
+  V: infinitive    # Bendratis
+  e: adverb        # Prieveismis
+  i: interjection  # Jaustukas
+  p: preposition   # Prielinksnis
+  c: conjunction   # Jungtukas
+  P: particle      # Dalelytė
+
+
+gender:
+  m: masculine
+  M: masculine-only
+  f: feminine
+  F: feminine-only
+  n: neuter
+  a: animate
+  i: inanimate
+  c: common
+
+
+number:
+  s: singular
+  S: singular-only
+  d: dual
+  p: plural
+  P: plural-only
+
+
+case:
+  n: nominative
+  a: accusative
+  d: dative
+  b: ablative
+  g: genitive
+  v: vocative
+  l: locative
+  i: instrumental
+  p: partitive
+  t: translative
+
+
+tense:
+  p: present
+  s: past
+  f: future
+  P: perfect progressive
+
+
+person:
+  1: first
+  2: second
+  3: third
+
+
+mood:
+  i: indicative
+  s: subjective
+  d: conditional
+  m: imperative
+  g: gerundive
+  p: participle
+
+
+comparison:
+  p: positive
+  c: comparative
+  s: superlative
+
+
+voice:
+  a: active
+  p: passive
+
+
+polarity:
+  p: positive  # (affirmative)
+  n: negative
+
+
+# All grammar put together
+grammar:
+  noun:
+  - gender
+  - number
+  - case
+  adjective:
+  - gender
+  - number
+  - case
+  - comparison
+  - polarity
+  verb:
+  - mood
+  - tense
+  - person
+  - number
+  - gender
+  - voice
+  adverb:
+  - polarity
+  - comparison
