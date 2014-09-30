@@ -17,7 +17,7 @@ bin/buildout: bin/python
 
 
 bin/python:
-	virtualenv --distribute --no-site-packages .
+	virtualenv --python=python2.7 --no-site-packages .
 	bin/pip install distribute --upgrade
 
 
