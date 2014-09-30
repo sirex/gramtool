@@ -13,7 +13,7 @@ bin/gram: bin/buildout $(CONFIGS)
 
 
 bin/buildout: bin/python
-	bin/python bootstrap.py --version=2.2.1 --distribute
+	bin/python bootstrap.py --version=2.2.1
 
 
 bin/python:
