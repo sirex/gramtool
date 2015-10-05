@@ -1,13 +1,14 @@
 """Grammar analysis tool.
 
 Usage:
-  gram <word> [-d <path>] [-l <lang>]
+  gram <word> [-d <path>] [-l <lang>] [-f]
 
 Options:
   <word>                A lexeme from morphology database.
   -h --help             Show this screen.
   -d --data-dir=<path>  Data directory [default: data].
   -l --lang=<lang>      Data directory [default: lt].
+  -f --forms            Print all <word> forms.
 
 """
 
@@ -16,7 +17,7 @@ import os.path
 
 from .parser import get_grammar_rules
 from .utils.grammar import get_grammar_tree
-from .views import print_forms
+from .views import print_forms, print_all_forms
 from .exceptions import UserSideError
 from .grammar import Grammar
 from .hunspell import get_hunspell_dict
@@ -46,3 +47,5 @@ def gram():
             print e
     else:
         print_forms(grammar, word)
+        if args['--forms']:
+            print_all_forms(grammar, word)
