@@ -4,7 +4,7 @@ import pkg_resources as pres
 
 from gramtool.parser import get_grammar_rules
 from gramtool.utils.grammar import get_grammar_tree, get_frequency_list
-from gramtool.grammar import Grammar, check_spec
+from gramtool.grammar import Grammar, change_spec
 from gramtool.hunspell import get_hunspell_dict
 
 
@@ -52,14 +52,20 @@ class GramTool(object):
             return lemma
 
     def change_form(self, word, **kwargs):
+        spec = None
+        candidates = {}
         grammar = self.grammar()
         symbols = self.symbols()
         for stem, suffix, rule in grammar.find_rules(word):
             forms = rule.build_forms(stem)
             if grammar.check_spelling(forms):
                 for form in rule.forms.values():
-                    if check_spec(symbols, form.spec, **kwargs):
-                        return form.get_word(stem)
+                    candidate = form.get_word(stem)
+                    if word == candidate:
+                        spec = form.spec
+                    candidates[form.spec.lower()] = candidate
+                if spec:
+                    return candidates[change_spec(symbols, spec, **kwargs).lower()]
 
 
 gt = GramTool()

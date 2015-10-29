@@ -57,15 +57,16 @@ class Grammar(object):
                     yield stem, suffix, self.rules[rule]
 
     def create_indexes(self, rules):
-        stems = defaultdict(set)
-        suffixes = defaultdict(set)
+        stems = defaultdict(list)
+        suffixes = defaultdict(list)
         for key, rule in self.rules.items():
             for form in rule.forms.values():
                 if form.suffixes:
                     for suffix in form.suffixes:
-                        suffixes[suffix].add(key)
-                else:
-                    stems[form.stem].add(key)
+                        if key not in suffixes[suffix]:
+                            suffixes[suffix].append(key)
+                elif key not in stems[form.stem]:
+                    stems[form.stem].append(key)
 
         sort_by_len = lambda k: len(k[0])
         suffixes = sorted(suffixes.items(), key=sort_by_len, reverse=True)
@@ -119,3 +120,21 @@ def check_spec(symbols, spec, **kwargs):
         elif key not in symbols:
             raise ValueError("Unknown symbol '%s'." % key)
     return True
+
+
+def change_spec(symbols, spec, **kwargs):
+    spec = list(spec)
+    pos = symbols['pos'][spec[0]]
+    properties = ['pos'] + symbols['grammar'][pos]
+    for key, value in kwargs.items():
+        if key in properties:
+            idx = properties.index(key)
+            for k, v in symbols[key].items():
+                if v == value:
+                    spec[idx] = k
+                    break
+            else:
+                raise ValueError("Unknown symbol '%s' of '%s'." % (value, key))
+        elif key not in symbols:
+            raise ValueError("Unknown symbol '%s'." % key)
+    return ''.join(spec)

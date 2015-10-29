@@ -2,6 +2,7 @@ import unittest
 
 from gramtool import gt
 from gramtool.grammar import check_spec
+from gramtool.grammar import change_spec
 
 
 class CheckSpecTests(unittest.TestCase):
@@ -32,3 +33,12 @@ class CheckSpecTests(unittest.TestCase):
 
     def test_value_error(self):
         self.assertRaises(ValueError, check_spec, gt.symbols(), 'nmsn', case='incorrect')
+
+
+class ChangeSpecTests(unittest.TestCase):
+
+    def assertChangeSpec(self, spec, result, **kwargs):
+        self.assertEqual(change_spec(gt.symbols(), spec, **kwargs), result)
+
+    def test_change_spec(self):
+        self.assertChangeSpec('nmsn', 'nmsg', case='genitive')

@@ -1307,7 +1307,7 @@ nmpa . tis
 nmpi . timis
 nmpl . tyse
 
-@rule US Sūnus
+@rule sūnus
 nmsn . us
 nmsg . aus
 nmsd . ui
@@ -1325,7 +1325,22 @@ nmpl . uose
 # ------------ NAMES  ONLY SINGULAR
 # -----------------------------------------
 
-@rule US  žmogus only singular
+@rule žmogus/žmonės
+nmsn . gus
+nmsg . gaus
+nmsd . gui
+nmsa . gų
+nmsi . gumi
+nmsl . guje
+nmpn . nės
+nmpg . nių
+nmpd . nėmis
+nmpa . nes
+nmpi . nėmis
+nmpl . nėse
+
+
+@rule žmogus
 nmsn . us
 nmsg . aus
 nmsd . ui
