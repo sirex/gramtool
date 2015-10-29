@@ -4,14 +4,72 @@ Main purpose of this library is to identify given phrase and provide all
 information about that phrase, its grammatical category, part of speech, used
 affixes and etc.
 
+
 Installing
 ==========
 
 On Ubuntu 12.04::
 
-    sudo apt-get install libhunspell-dev
-    make
-    bin/gram žodžiuose
+    $ sudo apt-get install python-dev libhunspell-dev
+    $ pip install gramtool
+
+
+Using command line
+==================
+
+::
+
+    $ gramtool žodžiuose
+    žodžiuose [nmpl] -> žodis
+    žodžiuose [nmsl] -> žodžiai
+
+    Masculine dis (medis)
+      [nmsn] žodis
+      [nmsg] žodžio
+      [nmsd] žodžiui
+      [nmsa] žodį
+      [nmsi] žodžiu
+      [nmsl] žodyje
+      [nmpn] žodžiai
+      [nmpg] žodžių
+      [nmpd] žodžiams
+      [nmpa] žodžius
+      [nmpi] žodžiais
+      [nmpl] žodžiuose
+
+    AI Miltai only plural
+      [nmsn] žodžiai
+      [nmsg] žodžių
+      [nmsd] žodžiams
+      [nmsa] žodžius
+      [nmsi] žodžiais
+      [nmsl] žodžiuose
+
+    $ gramtool žmogus --case=locative
+    žmoguje
+
+
+Using library
+=============
+
+Find word lemma
+---------------
+
+.. code-block:: python
+
+    import gramtool
+
+    assert gramtool.get_lemma('žodžiai') == 'žodis'
+
+
+Get different grammatical form
+------------------------------
+
+.. code-block:: python
+
+    import gramtool
+
+    assert gramtool.change_form('žmogus', case='locative') == 'žmoguje'
 
 
 How it works?
