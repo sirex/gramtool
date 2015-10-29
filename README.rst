@@ -8,7 +8,9 @@ affixes and etc.
 Installing
 ==========
 
-On Ubuntu 12.04::
+``gramtool`` requires Python 3 version.
+
+On Ubuntu 14.04::
 
     $ sudo apt-get install python-dev libhunspell-dev
     $ pip install gramtool
@@ -52,16 +54,14 @@ Using command line
 Using library
 =============
 
-Find word lemma
----------------
+Find word lemma:
 
 .. code-block:: python
 
     assert gramtool.get_lemma('žodžiai') == 'žodis'
 
 
-Get different grammatical form
-------------------------------
+Get different grammatical form:
 
 .. code-block:: python
 
