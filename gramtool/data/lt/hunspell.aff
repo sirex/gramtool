@@ -2159,7 +2159,7 @@ SFX P ësi     imusis          ësi
 SFX P ësi     imaisis         ësi
 SFX P ësi     imuosesi        ësi
 
-SFX V Y 46
+SFX V Y 47
 SFX V is      iui             [^dt]is
 SFX V tis     èiui            tis
 SFX V dis     dþiui           dis
@@ -2204,6 +2204,7 @@ SFX V uo      unie            ðuo
 SFX V uo      unys            ðuo
 SFX V uo      unø             ðuo
 SFX V uo      unimis          ðuo
+SFX V uo      unims           ðuo
 SFX V uo      unis            ðuo
 SFX V uo      unyse           ðuo
 

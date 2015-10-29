@@ -3,21 +3,19 @@ from setuptools import setup
 
 
 setup(
-    name='gram',
-    version='0.1',
+    name='gramtool',
+    version='0.2',
     license='GPL',
-    packages=find_packages('src'),
+    packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    package_dir={'': 'src'},
     install_requires=[
         'hunspell',
         'PyYAML',
-        'docopt',
     ],
-    entry_points = {
+    entry_points={
         'console_scripts': [
-            'gram=gram.main:gram',
+            'gramtool=gramtool.main:main',
         ],
     },
 )

@@ -2,7 +2,7 @@ import yaml
 
 from itertools import chain
 
-from gram.exceptions import UserSideError
+from gramtool.exceptions import UserSideError
 
 
 def get_grammar_tree(filename):
@@ -17,3 +17,11 @@ def get_grammar_tree(filename):
             raise UserSideError('Error loading grammar file, %s' % e)
 
     return grammar
+
+
+def get_frequency_list(filename):
+    result = []
+    with open(filename) as f:
+        for line in f:
+            result.append(line.strip())
+    return result

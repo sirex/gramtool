@@ -34,14 +34,14 @@ number:
 
 
 case:
-  n: nominative
-  a: accusative
-  d: dative
+  n: nominative      # Vardininmas   Kas?
+  g: genitive        # Kilmininkas   Ko?
+  d: dative          # Naudininkas   Kam?
+  a: accusative      # Galininkas    Ką?
+  i: instrumental    # Įnagininkas   Kuo?
+  l: locative        # Vietininkas   Kur, kame?
+  v: vocative        # Šauksminikas
   b: ablative
-  g: genitive
-  v: vocative
-  l: locative
-  i: instrumental
   p: partitive
   t: translative
 

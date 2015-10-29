@@ -1,31 +1,4 @@
-CONFIGS = \
-  buildout.cfg \
-  setup.py
+test:
+	nosetests tests
 
-
-.PHONY: all
-all: bin/gram
-
-
-bin/gram: bin/buildout $(CONFIGS)
-	bin/buildout
-	touch -c $@
-
-
-bin/buildout: bin/python
-	bin/python bootstrap.py --version=2.2.1
-
-
-bin/python:
-	virtualenv --python=python2.7 --no-site-packages .
-	bin/pip install distribute --upgrade
-
-
-.PHONY: clean
-clean:
-	rm -r bin include lib local develop-eggs parts
-
-
-.PHONY: tags
-tags: all
-	bin/ctags -v
+.PHONY: test

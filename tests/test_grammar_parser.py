@@ -1,9 +1,9 @@
 import unittest
 
-from StringIO import StringIO
+from io import StringIO
 
-from .parser import Parser
-from .grammar import Grammar
+from gramtool.parser import Parser
+from gramtool.grammar import Grammar
 
 
 class FakeHunspell(object):
@@ -15,7 +15,8 @@ def get_all_forms(grammar, stem='(stem)'):
     for key, rule in grammar.rules.items():
         lines.append('@rule %s' % key)
         for form in rule.forms.values():
-            if form.spec.startswith('%'): continue
+            if form.spec.startswith('%'):
+                continue
             word = '-'.join(form.prefixes + [form.stem or stem] + form.suffixes)
             word = word.replace('+-', ' ').replace('-+', ' ').replace('+', ' ')
             lines.append(' '.join([form.spec, word]))
@@ -38,9 +39,6 @@ def genforms(s, stem='(stem)', strict=False, tree=None):
     hunspell = FakeHunspell()
     grammar = Grammar(hunspell, tree, rules)
     forms = get_all_forms(grammar, stem)
-    #print '-' * 72
-    #print strip(forms)
-    #print '-' * 72
     return strip(forms), strip(expected_output)
 
 
@@ -150,7 +148,6 @@ class MyTest(unittest.TestCase):
         xn-ps- ne-su-si-galvo-ti
 
         ''', 'galvo'))
-
 
     def test_english_verbs(self):
         self.maxDiff = None

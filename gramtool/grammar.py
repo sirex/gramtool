@@ -12,7 +12,7 @@ class Form(object):
         self.stem = stem
 
     def get_word(self, stem):
-        return u''.join(self.prefixes) + stem + u''.join(self.suffixes)
+        return ''.join(self.prefixes) + (self.stem or stem) + ''.join(self.suffixes)
 
 
 class Rule(object):
@@ -43,9 +43,12 @@ class Grammar(object):
         self.hs = hs
         self.tree = tree
         self.rules = rules
-        self.suffixes = self.get_suffixes(rules)
+        self.stems, self.suffixes = self.create_indexes(rules)
 
     def find_rules(self, word):
+        for rule in self.stems.get(word, []):
+            yield word, '', self.rules[rule]
+
         for suffix, rules in self.suffixes:
             if word.endswith(suffix):
                 if suffix != '':
@@ -53,16 +56,20 @@ class Grammar(object):
                 for rule in rules:
                     yield stem, suffix, self.rules[rule]
 
-    def get_suffixes(self, rules):
+    def create_indexes(self, rules):
+        stems = defaultdict(set)
         suffixes = defaultdict(set)
         for key, rule in self.rules.items():
             for form in rule.forms.values():
-                for suffix in form.suffixes:
-                    suffixes[suffix].add(key)
+                if form.suffixes:
+                    for suffix in form.suffixes:
+                        suffixes[suffix].add(key)
+                else:
+                    stems[form.stem].add(key)
 
         sort_by_len = lambda k: len(k[0])
         suffixes = sorted(suffixes.items(), key=sort_by_len, reverse=True)
-        return suffixes
+        return stems, suffixes
 
     def check_spelling(self, words):
         for word in words:
@@ -88,13 +95,27 @@ class Word(object):
         self.form = form
         self.stem = stem
 
-    def __unicode__(self):
+    def __str__(self):
         return self.form.get_word(self.stem)
 
     def __repr__(self):
-        return u'<Word %s (%s)>' % (
+        return '<Word %s (%s)>' % (
             self.form.get_word(self.stem),
             self.form.spec,
         )
 
 
+def check_spec(symbols, spec, **kwargs):
+    pos = symbols['pos'][spec[0]]
+    properties = ['pos'] + symbols['grammar'][pos]
+    for key, value in kwargs.items():
+        if key in properties:
+            code = spec[properties.index(key)]
+            name = symbols[key][code]
+            if value not in symbols[key].values():
+                raise ValueError("Unknown symbol '%s' of '%s'." % (value, key))
+            elif name not in (value, value + '-only'):
+                return False
+        elif key not in symbols:
+            raise ValueError("Unknown symbol '%s'." % key)
+    return True

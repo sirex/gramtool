@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import re
 import sys
@@ -64,8 +64,8 @@ def convert_line(line):
 def main():
     input_file = sys.argv[1]
     with open(input_file) as f:
-        for line in  f:
-            print convert_line(line)
+        for line in f:
+            print(convert_line(line))
 
 
 if __name__ == '__main__':

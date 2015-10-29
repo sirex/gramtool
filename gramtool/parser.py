@@ -1,12 +1,12 @@
 from collections import OrderedDict
 from collections import defaultdict
 
-from .grammar import Form
-from .grammar import Rule
-from .validator import GrammarSyntaxError
-from .validator import validate_rule
-from .validator import validate_spec
-from .exceptions import UserSideError
+from gramtool.grammar import Form
+from gramtool.grammar import Rule
+from gramtool.validator import GrammarSyntaxError
+from gramtool.validator import validate_rule
+from gramtool.validator import validate_spec
+from gramtool.exceptions import UserSideError
 
 
 class Parser(object):
@@ -49,7 +49,8 @@ class Parser(object):
 
     def parse_spec(self, spec):
         pos = spec[0]
-        if pos in ('*', '%'): return spec, None, None
+        if pos in ('*', '%'):
+            return spec, None, None
         name = self.tree['pos'][pos]
         if name in self.tree['grammar']:
             props = self.tree['grammar'][name]
@@ -66,9 +67,7 @@ class Parser(object):
             validate_spec(self, lineno, line, spec, name, props)
 
         if spec in rule.forms:
-            raise GrammarSyntaxError(self, lineno,
-                'this form "%s" is already defined' % spec
-            )
+            raise GrammarSyntaxError(self, lineno, 'this form "%s" is already defined' % spec)
 
         form = Form(rule, spec, level, stem)
 
@@ -90,7 +89,6 @@ class Parser(object):
                 form.suffixes.insert(0, suffix)
         rule.forms[spec] = form
 
-
     def parse_form(self, lineno, line):
         tokens = line.split()
         if len(tokens) == 3:
@@ -100,9 +98,7 @@ class Parser(object):
             spec, stem = tokens
             prefix = suffix = ''
         else:
-            raise GrammarSyntaxError(self, lineno,
-                'invalid rule form "%s"' % line
-            )
+            raise GrammarSyntaxError(self, lineno, 'invalid rule form "%s"' % line)
 
         self.add_form(lineno, line, self.rule, spec, (prefix,), (suffix,), 0, stem)
 
@@ -148,7 +144,6 @@ class Parser(object):
             return a, b
 
     def match_spec(self, fltr, spec):
-        #print '%s -> %s => ' % (fltr, spec),
         if fltr == '*' or spec == '*':
             return True
         if fltr.startswith('!'):
@@ -158,21 +153,17 @@ class Parser(object):
             match = True
         fltr, spec = self.fill_specs(fltr, spec)
         for i, f in enumerate(fltr):
-            if f == '*': continue
+            if f == '*':
+                continue
             if f != spec[i]:
-                #print repr(not match)
                 return not match
-        #print repr(match)
         return match
 
     def extend_spec(self, lineno, base, extension):
-        #print '%04d %s -> %s => ' % (lineno, base, extension),
         if extension == '*':
-            #print base
             return base
 
         if base == '*':
-            #print extension
             return extension
 
         base, extension = self.fill_specs(base, extension)
@@ -180,29 +171,21 @@ class Parser(object):
             b if extension[i] == '*' else extension[i]
             for i, b in enumerate(base)
         ])
-        #print newspec
         return newspec
 
     def get_include(self, lineno, key, rule, stack):
         if key not in self.rules:
-            raise GrammarSyntaxError(self, lineno,
-                'Specified include name "%s" is not defined.' % key
-            )
+            raise GrammarSyntaxError(self, lineno, 'Specified include name "%s" is not defined.' % key)
 
         include = self.rules[key]
 
         if include.key in stack:
-            raise GrammarSyntaxError(self, lineno,
-                'Circular include detected, while processing %s' % rule
-            )
+            raise GrammarSyntaxError(self, lineno, 'Circular include detected, while processing %s' % rule)
 
         return include
 
-
-    def process_rule_includes(self,
-            rule, slevel, node=None, sspec='*', sprefixes=None, ssuffixes=None,
-            sfltr='*', nstack=None
-        ):
+    def process_rule_includes(self, rule, slevel, node=None, sspec='*', sprefixes=None, ssuffixes=None, sfltr='*',
+                              nstack=None):
         node = node or rule
         sprefixes = sprefixes or tuple()
         ssuffixes = ssuffixes or tuple()
@@ -264,15 +247,13 @@ class Parser(object):
     def parse(self, f, filename):
         self.filename = filename
         for lineno, line in enumerate(f, 1):
-            line = line.decode('utf-8').strip()
+            line = line.strip()
             self.lines.append(line)
             line = self.strip_comments(line)
-            if not line: continue
+            if not line:
+                continue
 
-            if (
-                line == '@rule' or line.startswith('@rule ') or
-                line == '@macro' or line.startswith('@macro ')
-            ):
+            if line == '@rule' or line.startswith('@rule ') or line == '@macro' or line.startswith('@macro '):
                 self.close_rule()
                 self.open_rule(lineno, line)
             else:

@@ -1,0 +1,2 @@
+class UserSideError(Exception):
+    pass

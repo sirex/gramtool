@@ -2,10 +2,10 @@
 
 import os.path
 
-from .parser import get_grammar_rules
-from .utils.grammar import get_grammar_tree
-from .grammar import Grammar
-from .hunspell import get_hunspell_dict
+from gramtool.parser import get_grammar_rules
+from gramtool.utils.grammar import get_grammar_tree
+from gramtool.grammar import Grammar
+from gramtool.hunspell import get_hunspell_dict
 
 
 _dicts = {}
@@ -26,7 +26,6 @@ class Wrapper(object):
         self.rules = get_grammar_rules(self.tree, rules_file)
         self.hunspell = get_hunspell_dict(hunspell_aff_file, hunspell_dic_file)
         self.grammar = Grammar(self.hunspell, self.tree, self.rules)
-
 
 
 def load(lang):
@@ -50,7 +49,7 @@ def _get_stem(word, lang):
 
 
 def lemma(word, lang='lt'):
-    u"""
+    """
 
     >>> print lemma(u'namo')
     namas
@@ -65,13 +64,5 @@ def lemma(word, lang='lt'):
     smogas
 
     """
-    #d = load(lang)
-
     lemma = _get_lemma(word, lang) or _get_stem(word, lang)
-    #if lemma is None:
-    #    suggestions = d.hunspell.suggest(word)
-    #    if suggestions:
-    #        word = suggestions[0]
-    #        lemma = _get_lemma(word, lang) or _get_stem(word, lang)
-
     return lemma or word

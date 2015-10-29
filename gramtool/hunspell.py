@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 import hunspell
 
 
@@ -15,11 +13,11 @@ class HunSpell(hunspell.HunSpell):
             return False
         return (
             self.hs.spell(word) or
-            self.hs.spell(word[0].upper() + word[1:])
+            self.hs.spell(word.decode(self.encoding).title().encode('utf-8'))
         )
 
-    def stem(self, word):
-        assert isinstance(word, unicode)
+    def stem(self, word: str):
+        assert isinstance(word, str)
         try:
             word = word.encode(self.encoding)
         except UnicodeEncodeError:
@@ -27,8 +25,8 @@ class HunSpell(hunspell.HunSpell):
         else:
             return [w.decode(self.encoding) for w in self.hs.stem(word)]
 
-    def suggest(self, word):
-        assert isinstance(word, unicode)
+    def suggest(self, word: str):
+        assert isinstance(word, str)
         try:
             word = word.encode(self.encoding)
         except UnicodeEncodeError:
@@ -38,5 +36,5 @@ class HunSpell(hunspell.HunSpell):
 
 
 def get_hunspell_dict(aff, dic):
-    hs =  hunspell.HunSpell(dic, aff)
+    hs = hunspell.HunSpell(dic, aff)
     return HunSpell(hs)

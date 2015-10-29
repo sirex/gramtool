@@ -1079,25 +1079,25 @@ nmsn . as
 nmsg . o
 nmsd . ui
 nmsa . ą
-nmsb . u
+nmsi . u
 nmsl . e
 nmpn . ai
 nmpg . ų
 nmpd . ams
 nmpa . us
-nmpb . ais
+nmpi . ais
 nmpl . uose
 nfsn . a
 nfsg . os
 nfsd . ai
 nfsa . ą
-nfsb . a
+nfsi . a
 nfsl . oje
 nfpn . os
 nfpg . ų
 nfpd . oms
 nfpa . as
-nfpb . omis
+nfpi . omis
 nfpl . ose
 
 @rule Masculine AS
@@ -1105,13 +1105,13 @@ nmsn . as
 nmsg . o
 nmsd . ui
 nmsa . ą
-nmsb . u
+nmsi . u
 nmsl . e
 nmpn . ai
 nmpg . ų
 nmpd . ams
 nmpa . us
-nmpb . ais
+nmpi . ais
 nmpl . uose
 
 @rule Masculine IAS
@@ -1119,13 +1119,13 @@ nmsn . ias
 nmsg . io
 nmsd . iui
 nmsa . ią
-nmsb . iu
+nmsi . iu
 nmsl . yje
 nmpn . iai
 nmpg . ių
 nmpd . iams
 nmpa . ius
-nmpb . iais
+nmpi . iais
 nmpl . iuose
 
 @rule Masculine IS
@@ -1133,13 +1133,13 @@ nmsn . is
 nmsg . io
 nmsd . iui
 nmsa . į
-nmsb . iu
+nmsi . iu
 nmsl . yje
 nmpn . iai
 nmpg . ių
 nmpd . iams
 nmpa . ius
-nmpb . iais
+nmpi . iais
 nmpl . iuose
 
 @rule Masculine tis (Amerikietis)
@@ -1147,13 +1147,13 @@ nmsn . tis
 nmsg . čio
 nmsd . čiui
 nmsa . į
-nmsb . čiu
+nmsi . čiu
 nmsl . yje
 nmpn . čiai
 nmpg . čių
 nmpd . čiams
 nmpa . čius
-nmpb . čiais
+nmpi . čiais
 nmpl . čiuose
 
 @rule Masculine dis (medis)
@@ -1161,13 +1161,13 @@ nmsn . is
 nmsg . žio
 nmsd . žiui
 nmsa . į
-nmsb . žiu
+nmsi . žiu
 nmsl . yje
 nmpn . žiai
 nmpg . žių
 nmpd . žiams
 nmpa . žius
-nmpb . žiais
+nmpi . žiais
 nmpl . žiuose
 
 @rule Masculine YS
@@ -1175,13 +1175,13 @@ nmsn . ys
 nmsg . io
 nmsd . iui
 nmsa . į
-nmsb . iu
+nmsi . iu
 nmsl . yje
 nmpn . iai
 nmpg . ių
 nmpd . iams
 nmpa . ius
-nmpb . iais
+nmpi . iais
 nmpl . iuose
 
 @rule FEM A -IA
@@ -1189,13 +1189,13 @@ nfsn . a
 nfsg . os
 nfsd . ai
 nfsa . ą
-nfsb . a
+nfsi . a
 nfsl . oje
 nfpn . os
 nfpg . ų
 nfpd . oms
 nfpa . as
-nfpb . omis
+nfpi . omis
 nfpl . ose
 
 
@@ -1204,29 +1204,43 @@ nfsn . ė
 nfsg . ės
 nfsd . ei
 nfsa . ę
-nfsb . e
+nfsi . e
 nfsl . ėje
 
 @rule FEM only plural ės
-nfsn . ės
-nfsg . ių
-nfsd . ėms
-nfsa . es
-nfsb . ėmis
-nfsl . ėse
+nfpn . ės
+nfpg . ių
+nfpd . ėms
+nfpa . es
+nfpi . ėmis
+nfpl . ėse
+
+@rule FEM
+nfsn . ė
+nfsg . ės
+nfsd . ei
+nfsa . ę
+nfsi . e
+nfsl . ėje
+nfpn . ės
+nfpg . ių
+nfpd . ėms
+nfpa . es
+nfpi . ėmis
+nfpl . ėse
 
 @rule FEM ė bedarbistė
 nfsn . tė
 nfsg . tės
 nfsd . tei
 nfsa . tę
-nfsb . te
+nfsi . te
 nfsl . tėje
 nfpn . tės
 nfpg . čių
 nfpd . tėms
 nfpa . tes
-nfpb . tėmis
+nfpi . tėmis
 nfpl . tėse
 
 @rule -dė +masculine dėdė
@@ -1234,13 +1248,13 @@ nmsn . dė
 nmsg . dės
 nmsd . dei
 nmsa . dę
-nmsb . de
+nmsi . de
 nmsl . dėje
 nmpn . dės
 nmpg . džių
 nmpd . dėms
 nmpa . des
-nmpb . dėmis
+nmpi . dėmis
 nmpl . dėse
 
 @rule ONLY PLURAL žmones
@@ -1248,7 +1262,7 @@ nmsn . ės
 nmsg . ių
 nmsd . ėms
 nmsa . es
-nmsb . ėmis
+nmsi . ėmis
 nmsl . ėse
 
 @rule FEM in IS
@@ -1256,13 +1270,13 @@ nfsn . is
 nfsg . ies
 nfsd . iai
 nfsa . į
-nfsb . imi
+nfsi . imi
 nfsl . yje
 nfpn . ys
 nfpg . ių
 nfpd . ims
 nfpa . is
-nfpb . imis
+nfpi . imis
 nfpl . yse
 
 @rule FEM in TIS / STOTIS
@@ -1270,13 +1284,13 @@ nfsn . tis
 nfsg . ties
 nfsd . čiai
 nfsa . tį
-nfsb . timi
+nfsi . timi
 nfsl . tyje
 nfpn . tys
 nfpg . čių
 nfpd . tims
 nfpa . tis
-nfpb . timis
+nfpi . timis
 nfpl . tyse
 
 @rule MASC in TIS / DANTIS / same as STOTIS
@@ -1284,13 +1298,13 @@ nmsn . tis
 nmsg . ties
 nmsd . čiui   # here is specific iui instead of iai
 nmsa . tį
-nmsb . timi
+nmsi . timi
 nmsl . tyje
 nmpn . tys
 nmpg . tų    # here drop the i
 nmpd . tims
 nmpa . tis
-nmpb . timis
+nmpi . timis
 nmpl . tyse
 
 @rule US Sūnus
@@ -1298,13 +1312,13 @@ nmsn . us
 nmsg . aus
 nmsd . ui
 nmsa . ų
-nmsb . umi
+nmsi . umi
 nmsl . uje
 nmpn . ūs
 nmpg . ų
 nmpd . ums
 nmpa . us
-nmpb . umis
+nmpi . umis
 nmpl . uose
 
 # -----------------------------------------
@@ -1316,7 +1330,7 @@ nmsn . us
 nmsg . aus
 nmsd . ui
 nmsa . ų
-nmsb . umi
+nmsi . umi
 nmsl . uje
 
 
@@ -1326,7 +1340,7 @@ nmsn . tis
 nmsg . čio
 nmsd . čiui
 nmsa . į
-nmsb . čiu
+nmsi . čiu
 nmsl . yje
 
 @rule FEM A -IA Europa Lietuva only Singular
@@ -1334,7 +1348,7 @@ nfsn . a
 nfsg . os
 nfsd . ai
 nfsa . ą
-nfsb . a
+nfsi . a
 nfsl . oje
 
 
@@ -1346,7 +1360,7 @@ nmsn . ai
 nmsg . ų
 nmsd . ams
 nmsa . us
-nmsb . ais
+nmsi . ais
 nmsl . uose
 
 @rule OS salotos only plural
@@ -1354,7 +1368,7 @@ nfsn . os
 nfsg . ų
 nfsd . oms
 nfsa . as
-nfsb . omis
+nfsi . omis
 nfsl . ose
 
 @rule durys
@@ -1362,21 +1376,31 @@ n*sn . ys
 n*sg . ų    # here drop the i
 n*sd . ims
 n*sa . is
-n*sb . imis
+n*si . imis
 n*sl . yse
+
+@rule Vilnius
+nmSn . ius
+nmSg . iaus
+nmSd . iui
+nmSa . ių
+nmSi . iumi
+nmSl . iuje
+nmSv . iau
 
 @rule IUS VAISIUS
 nmsn . ius
 nmsg . iaus
 nmsd . iui
 nmsa . ių
-nmsb . iumi
+nmsi . iumi
 nmsl . iuje
+nmsv . iau
 nmpn . iai   #IAI and not US
 nmpg . ių
 nmpd . iams   # and not -ums
 nmpa . ius
-nmpb . iais   #and not -umis
+nmpi . iais   #and not -umis
 nmpl . iuose
 
 @rule UO VANDUO VAND-
@@ -1384,13 +1408,13 @@ nmsn . uo
 nmsg . ens
 nmsd . eniui
 nmsa . enį
-nmsb . eniu
+nmsi . eniu
 nmsl . enyje
 nmpn . enys
 nmpg . enų
 nmpd . enims
 nmpa . enis
-nmpb . enimis
+nmpi . enimis
 nmpl . enyse
 
 @rule SESUO SES-
@@ -1398,13 +1422,13 @@ nfsn sesuo
 nfsg sesers
 nfsd seseriai
 nfsa seserį
-nfsb seseria
+nfsi seseria
 nfsl seseryje
 nfpn seserys
 nfpg seserų
 nfpd seserims
 nfpa seseris
-nfpb seserimis
+nfpi seserimis
 nfpl seseryse
 
 @rule šuo
@@ -1412,13 +1436,13 @@ nmsn šuo
 nmsg šuns
 nmsd šuniui
 nmsa šunį
-nmsb šunie
+nmsi šunie
 nmsl šunyje
 nmpn šunys
 nmpg šunų
 nmpd šunims
 nmpa šunis
-nmpb šunimis
+nmpi šunimis
 nmpl šunyse
 
 @rule moter
@@ -1426,13 +1450,13 @@ nmsn moteris
 nmsg moters
 nmsd moteriai
 nmsa moterį
-nmsb moterie
+nmsi moterie
 nmsl moteryje
 nmpn moterys
 nmpg morerų
 nmpd moterims
 nmpa moteris
-nmpb moterimis
+nmpi moterimis
 nmpl moteryse
 
 
@@ -1441,7 +1465,7 @@ nfsn . žmonės
 nfsg . žmonių
 nfsd . žmonėms
 nfsa . žmones
-nfsb . žmonėmis
+nfsi . žmonėmis
 nfsl . žmonėse
 
 # -----------------------------------------
