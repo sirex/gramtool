@@ -57,8 +57,6 @@ Find word lemma
 
 .. code-block:: python
 
-    import gramtool
-
     assert gramtool.get_lemma('žodžiai') == 'žodis'
 
 
@@ -67,9 +65,7 @@ Get different grammatical form
 
 .. code-block:: python
 
-    import gramtool
-
-    assert gramtool.change_form('žmogus', case='locative') == 'žmoguje'
+    assert gramtool.change_form('dėžė', case='locative') == 'dėžėje'
 
 
 How it works?
