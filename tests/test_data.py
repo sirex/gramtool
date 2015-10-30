@@ -19,6 +19,9 @@ class LemmaTests(unittest.TestCase):
     def test_suo(self):
         self.assertLemma('šunį', 'šuo')
 
+    def test_phrase(self):
+        self.assertLemma('Šiaulių banko', 'Šiaulių bankas')
+
 
 class ChangeFormTests(unittest.TestCase):
 

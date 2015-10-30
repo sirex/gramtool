@@ -37,7 +37,7 @@ class GramTool(object):
         frequency_file = self.data_dir / self.language / 'frequency'
         return get_frequency_list(str(frequency_file))
 
-    def get_lemma(self, word):
+    def _get_word_lemma(self, word):
         result = []
         frequency = self.frequency()
         for lemma, lexeme in self.grammar().iter_rules(word):
@@ -50,6 +50,14 @@ class GramTool(object):
 
         for index, lemma in sorted(result):
             return lemma
+
+    def get_lemma(self, phrase):
+        words = phrase.split()
+        lemma = self._get_word_lemma(words[-1])
+        if lemma:
+            return ' '.join(words[:-1] + [lemma])
+        else:
+            return None
 
     def change_form(self, word, **kwargs):
         spec = None
