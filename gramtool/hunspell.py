@@ -13,7 +13,7 @@ class HunSpell(hunspell.HunSpell):
             return False
         return (
             self.hs.spell(word) or
-            self.hs.spell(word.decode(self.encoding).title().encode('utf-8'))
+            self.hs.spell(word.decode(self.encoding).title().encode(self.encoding))
         )
 
     def stem(self, word: str):
