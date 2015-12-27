@@ -5,7 +5,7 @@ from setuptools import setup
 setup(
     name='gramtool',
     version='0.2',
-    license='GPL',
+    license='LGPL',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
