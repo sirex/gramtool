@@ -57,8 +57,8 @@ class Parser(object):
         else:
             props = []
 
-        if len(props) > len(spec)-1:
-            spec += '-' * (len(props) - (len(spec)-1))
+        if len(props) > len(spec) - 1:
+            spec += '-' * (len(props) - (len(spec) - 1))
         return spec, name, props
 
     def add_form(self, lineno, line, rule, spec, prefixes, suffixes, level, stem=None):
@@ -137,9 +137,9 @@ class Parser(object):
         blen = len(b)
 
         if alen > blen:
-            return a, b + '-' * (alen-blen)
+            return a, b + '-' * (alen - blen)
         elif alen < blen:
-            return a + '-' * (blen-alen), b
+            return a + '-' * (blen - alen), b
         else:
             return a, b
 
@@ -211,7 +211,7 @@ class Parser(object):
 
             nspec = self.extend_spec(lineno, sspec.lstrip('%'), spec)
             nfltr = self.extend_spec(lineno, sfltr, fltr)
-            for form in include.forms.values():
+            for form in list(include.forms.values()):
                 if form.level < level and self.match_spec(nfltr, form.spec):
                     newspec = self.extend_spec(lineno, form.spec.lstrip('%'), nspec)
                     prefs = tuple(form.prefixes) + prefixes
@@ -238,7 +238,7 @@ class Parser(object):
             if not rule.macro:
                 rules[key] = rule
 
-        for level in range(self.max_include_level+1):
+        for level in range(self.max_include_level + 1):
             for key, rule in rules.items():
                 self.process_rule_includes(rule, level)
                 self.process_rule_includes(rule, (level, '*'))
