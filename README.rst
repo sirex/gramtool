@@ -10,18 +10,18 @@ Installing
 
 ``gramtool`` requires Python 3 version.
 
-On Ubuntu 14.04::
+On Ubuntu 14.04, 16.04::
 
     $ sudo apt-get install python-dev libhunspell-dev
     $ pip install gramtool
 
 
-Using command line
-==================
+Using command line tool
+=======================
 
 ::
 
-    $ gramtool žodžiuose
+    $ gramtool -f žodžiuose
     žodžiuose [nmpl] -> žodis
     žodžiuose [nmsl] -> žodžiai
 
