@@ -1,53 +1,40 @@
 # Lithuanian grammar rules
 
-@rule dirbti
-# Bendratis (infinitive)
-V . ti   #     dirbti
-
-# Esamasis laikas (simple present)
-vip1s . u   # aš  dirbu
-vip2s . i   # tu  dirbi
-vip3s . a   # jis dirba
-vip1p . ame   # mes dirbame
-vip2p . ate   # jūs dirbate
-vip3p . a   # jie dirba
-
-# Būtasis kartinis laikas (past simple)
-vis1s . au   # aš  dirbau
-vis2s . ai   # tu  dirbai
-vis3s . o   # jis dirbo
-vis1p . ome   # mes dirbome
-vis2p . ote   # jūs dirbote
-vis3p . o   # jie dirbo
-
-# Būtasis dažninis laikas (past perfect progressive)
-viP1s . davau   # aš  dirbdavau
-viP2s . davai   # tu  dirbdavai
-viP3s . davo   # jis dirbdavo
+@rule veiksmažodis -u,-i (dirbti)
+V     . ti       #     dirbti
+vip1s . u        # aš  dirbu
+vip2s . i        # tu  dirbi
+vip3s . a        # jis dirba
+vip1p . ame      # mes dirbame
+vip2p . ate      # jūs dirbate
+vip3p . a        # jie dirba
+vis1s . au       # aš  dirbau
+vis2s . ai       # tu  dirbai
+vis3s . o        # jis dirbo
+vis1p . ome      # mes dirbome
+vis2p . ote      # jūs dirbote
+vis3p . o        # jie dirbo
+viP1s . davau    # aš  dirbdavau
+viP2s . davai    # tu  dirbdavai
+viP3s . davo     # jis dirbdavo
 viP1p . davome   # mes dirbdavome
 viP2p . davote   # jūs dirbdavote
-viP3p . davo   # jie dirbdavo
-
-# Būsimasis laikas (future simple)
-vif1s . siu   # aš  dirbsiu
-vif2s . si   # tu  dirbsi
-vif3s . s   # jis dirbs
-vif1p . sime   # mes dirbsime
-vif2p . site   # jūs dirbsite
-vif3p . s   # jie dirbs
-
-# Tariamoji nuosaka (subjunctive mood)
-vs-1s . čiau   # aš  dirbčiau
-vs-2s . tum   # tu  dirbtum
-vs-3s . tų   # jis dirbtų
-vs-1p . tume   # mes dirbtume
+viP3p . davo     # jie dirbdavo
+vif1s . siu      # aš  dirbsiu
+vif2s . si       # tu  dirbsi
+vif3s . s        # jis dirbs
+vif1p . sime     # mes dirbsime
+vif2p . site     # jūs dirbsite
+vif3p . s        # jie dirbs
+vs-1s . čiau     # aš  dirbčiau
+vs-2s . tum      # tu  dirbtum
+vs-3s . tų       # jis dirbtų
+vs-1p . tume     # mes dirbtume
 vs-2p . tumėte   # jūs dirbtumėte
-vs-3p . tų   # jie dirbtų
-
-# Liepiamoji nuosaka (imperative mood)
-vmp2s . k   # tu  dirbk
-vmp2p . kit   # jūs dirbkit
-vmp3p . kite   # jūs dirbkite
+vs-3p . tų       # jie dirbtų
+vmp2s . k        # tu  dirbk
+vmp2p . kit      # jūs dirbkit
+vmp3p . kite     # jūs dirbkite
 
 @rule A -oti miegoti
 V     . oti   #     mieg-oti
@@ -140,6 +127,29 @@ vif2p . ėsite   # jūs kalbėsite
 vif3p . ės   # jie kalbės
 vmp2s . ėk
 vmp2p . ėkite
+
+@rule veiksmažodis, -ėti,-o,-ėjo (privalėti)
+V     . ėti    #     privalėti
+vip1s . au     # aš  privalau
+vip2s . ai     # tu  privalai
+vip3s . o      # jis privalo
+vip1p . ome    # mes privalome
+vip2p . ote    # jūs privalote
+vip3p . o      # jie privalo
+vis1s . ėjau   # aš  privalėjau
+vis2s . ėjai   # tu  privalėjai
+vis3s . ėjo    # jis privalėjo
+vis1p . ėjome  # mes privalėjome
+vis2p . ėjote  # jūs privalėjote
+vis3p . ėjo    # jie privalėjo
+vif1s . ėsiu   # aš  privalėsiu
+vif2s . ėsi    # tu  privalėsi
+vif3s . ės     # jis privalės
+vif1p . ėsime  # mes privalėsime
+vif2p . ėsite  # jūs privalėsite
+vif3p . ės     # jie privalės
+vmp2s . ėk     # tu  privalėk
+vmp2p . ėkite  # jūs privalėkite
 
 @rule A -uoti STUDIJUOTI STUDI- važiuoti važi
 V     . uoti   #     studijuotiti
@@ -347,75 +357,121 @@ vif3p . ės   # jie kalbės
 vmp2s . ėk
 vmp2p . ėkite
 
-@rule IA -ti laukti
-V     . ti   #     lauk-ti
-vip1s . iu   # aš  lauk-iu
-vip2s . i   # tu
-vip3s . ia   # jis
-vip1p . iame   # mes
-vip2p . iate   # jūs
-vip3p . ia   # jie
-vis1s . iau   # aš
-vis2s . ei   # tu
-vis3s . ė   # jis
-vis1p . ėme   # mes
-vis2p . ėte   # jūs
-vis3p . ė   # jie
-vif1s . siu   # aš
-vif2s . si   # tu
-vif3s . s   # jis
-vif1p . sime   # mes
-vif2p . site   # jūs
-vif3p . s   # jie
-vmp2s . .
-vmp2p . ite
+@rule veiksmažodis, -ti,-ia,-ė (skelbti)
+V     . ti     #     skelbti
+vip1s . iu     # aš  skelbiu
+vip2s . i      # tu  skelbi
+vip3s . ia     # jis skelbia
+vip1p . iame   # mes skelbiame
+vip2p . iate   # jūs skelbiate
+vip3p . ia     # jie skelbia
+vis1s . iau    # aš  skelbiau
+vis2s . ei     # tu  skelbei
+vis3s . ė      # jis skelbė
+vis1p . ėme    # mes skelbėme
+vis2p . ėte    # jūs skelbėte
+vis3p . ė      # jie skelbė
+vif1s . siu    # aš  skelbsiu
+vif2s . si     # tu  skelbsi
+vif3s . s      # jis skelbs
+vif1p . sime   # mes skelbsime
+vif2p . site   # jūs skelbsite
+vif3p . s      # jie skelbs
+vmp2s . k      # tu  skelbk
+vmp2p . kite   # jės skelbkite
+
+@rule veiksmažodis, -ti,-ia,-ė (laukti)
+V     . ti     #     laukti
+vip1s . iu     # aš  laukiu
+vip2s . i      # tu  lauki
+vip3s . ia     # jis laukia
+vip1p . iame   # mes laukiame
+vip2p . iate   # jūs laukiate
+vip3p . ia     # jie laukia
+vis1s . iau    # aš  laukiau
+vis2s . ei     # tu  laukei
+vis3s . ė      # jis laukė
+vis1p . ėme    # mes laukėme
+vis2p . ėte    # jūs laukėte
+vis3p . ė      # jie laukė
+vif1s . siu    # aš  lauksiu
+vif2s . si     # tu  lauksi
+vif3s . s      # jis lauks
+vif1p . sime   # mes lauksime
+vif2p . site   # jūs lauksite
+vif3p . s      # jie lauks
+vmp2s . .      # tu  lauk
+vmp2p . ite    # jės laukite
 
 
-@rule YTI
+@rule veiksmažodis -yti,-au (rašyti)
 V     . yti   #     rašyti
-vip1s . au   # aš  rašau
-vip2s . ai   # tu  rašai
-vip3s . o   # jis rašo
+vip1s . au    # aš  rašau
+vip2s . ai    # tu  rašai
+vip3s . o     # jis rašo
 vip1p . ome   # mes rašome
 vip2p . ote   # jūs rašote
-vip3p . o   # jie rašo
+vip3p . o     # jie rašo
 vis1s . iau   # aš  rašiau
-vis2s . ei   # tu  rašei
-vis3s . ė   # jis rašė
+vis2s . ei    # tu  rašei
+vis3s . ė     # jis rašė
 vis1p . ėme   # mes rašėme
 vis2p . ėte   # jūs rašėte
-vis3p . ė   # jie rašė
-vif1s . ysiu   # aš  rašysiu
+vis3p . ė     # jie rašė
+vif1s . ysiu  # aš  rašysiu
 vif2s . ysi   # tu  rašysi
-vif3s . ys   # jis rašys
-vif1p . ysiu   # mes rašysime
+vif3s . ys    # jis rašys
+vif1p . ysiu  # mes rašysime
 vif2p . ysi   # jūs rašysite
-vif3p . ys   # jie rašys
+vif3p . ys    # jie rašys
 vmp2s . yk
 vmp2p . ykite
 
-@rule TYTI skaytiti matyti
-V     . tyti   #     rašyti
-vip1s . tau   # aš  rašau
-vip2s . tai   # tu  rašai
-vip3s . to   # jis rašo
-vip1p . tome   # mes rašome
-vip2p . tote   # jūs rašote
-vip3p . to   # jie rašo
-vis1s . čiau   # aš  rašiau
-vis2s . tei   # tu  rašei
-vis3s . tė   # jis rašė
-vis1p . tėme   # mes rašėme
-vis2p . tėte   # jūs rašėte
-vis3p . tė   # jie rašė
-vif1s . tysiu   # aš  rašysiu
-vif2s . tysi   # tu  rašysi
-vif3s . tys   # jis rašys
-vif1p . tysime   # mes rašysime
-vif2p . tysite   # jūs rašysite
-vif3p . tys   # jie rašys
-vmp2s . tyk
-vmp2p . tykite
+@rule veiksmažodis -yti,-žiau (vykdyti)
+V     . yti   #     vykdyti
+vip1s . au    # aš  vykdau
+vip2s . ai    # tu  vykdai
+vip3s . o     # jis vykdo
+vip1p . ome   # mes vykdome
+vip2p . ote   # jūs vykdote
+vip3p . o     # jie vykdo
+vis1s . žiau  # aš  vykdžiau
+vis2s . ei    # tu  vykdei
+vis3s . ė     # jis vykdė
+vis1p . ėme   # mes vykdėme
+vis2p . ėte   # jūs vykdėte
+vis3p . ė     # jie vykdė
+vif1s . ysiu  # aš  vykdysiu
+vif2s . ysi   # tu  vykdysi
+vif3s . ys    # jis vykdys
+vif1p . ysiu  # mes vykdysime
+vif2p . ysi   # jūs vykdysite
+vif3p . ys    # jie vykdys
+vmp2s . yk    # tu  vykdyk
+vmp2p . ykite # jūs vykdykite
+
+@rule veiksmažodis -tyti,-čiau (skaityti, matyti)
+V     . tyti   #     matyti
+vip1s . tau    # aš  matau
+vip2s . tai    # tu  matai
+vip3s . to     # jis mato
+vip1p . tome   # mes matome
+vip2p . tote   # jūs matote
+vip3p . to     # jie mato
+vis1s . čiau   # aš  matčiau
+vis2s . tei    # tu  matei
+vis3s . tė     # jis matė
+vis1p . tėme   # mes matėme
+vis2p . tėte   # jūs matėte
+vis3p . tė     # jie matė
+vif1s . tysiu  # aš  matysiu
+vif2s . tysi   # tu  matysi
+vif3s . tys    # jis matys
+vif1p . tysime # mes matysime
+vif2p . tysite # jūs matysite
+vif3p . tys    # jie matys
+vmp2s . tyk    # tu  matyk
+vmp2p . tykite # jūs matykite
 
 @rule  BIJOTI
 V     . oti   #     bijoti
@@ -853,42 +909,42 @@ vip3p jaučiasi
 # -----------------------------------------
 
 @rule ADJECTIVE
-amsnp . tus    # kas absoliutus
-amsgp . taus    # ko  absoliutaus
-amsdp . čiam    # kam absoliučiam
-amsap . tų    # ką  absoliutų
-amsbp . čiu    # kuo absoliučiu
-amslp . čiame    # kur absoliučiame
-ampnp . tūs    # kas absoliutūs
-ampgp . čių    # ko  absoliučių
-ampdp . tiems    # kam absoliutiems
-ampap . čius    # ką  absoliučius
-ampbp . čiais    # kuo absoliučiais
-amplp . čiuose    # kur absoliučiuose
-amsnc . tesnis    # kas absoliutesnis
-amsgc . tesnio    # ko  absoliutesnio
-amsdc . tesniam    # kam absoliutesniam
-amsac . tesnį    # ką  absoliutesnį
-amsbc . tesniu    # kuo absoliutesniu
-amslc . tesniame    # kur absoliutesniame
-ampnc . tesni    # kas absoliutesni
-ampgc . tesnių    # ko  absoliutesnių
-ampdc . tesniems    # kam absoliutesniems
-ampac . tesnius    # ką  absoliutesnius
-ampbc . tesniais    # kuo absoliutesniais
+amsnp . tus          # kas absoliutus
+amsgp . taus         # ko  absoliutaus
+amsdp . čiam         # kam absoliučiam
+amsap . tų           # ką  absoliutų
+amsbp . čiu          # kuo absoliučiu
+amslp . čiame        # kur absoliučiame
+ampnp . tūs          # kas absoliutūs
+ampgp . čių          # ko  absoliučių
+ampdp . tiems        # kam absoliutiems
+ampap . čius         # ką  absoliučius
+ampbp . čiais        # kuo absoliučiais
+amplp . čiuose       # kur absoliučiuose
+amsnc . tesnis       # kas absoliutesnis
+amsgc . tesnio       # ko  absoliutesnio
+amsdc . tesniam      # kam absoliutesniam
+amsac . tesnį        # ką  absoliutesnį
+amsbc . tesniu       # kuo absoliutesniu
+amslc . tesniame     # kur absoliutesniame
+ampnc . tesni        # kas absoliutesni
+ampgc . tesnių       # ko  absoliutesnių
+ampdc . tesniems     # kam absoliutesniems
+ampac . tesnius      # ką  absoliutesnius
+ampbc . tesniais     # kuo absoliutesniais
 amplc . tesniuose    # kur absoliutesniuose
-amsns . čiausias    # kas absoliučiausias
-amsgs . čiausio    # ko  absoliučiausio
-amsds . čiausiam    # kam absoliučiausiam
-amsas . čiausią    # ką  absoliučiausią
-amsbs . čiausiu    # kuo absoliučiausiu
+amsns . čiausias     # kas absoliučiausias
+amsgs . čiausio      # ko  absoliučiausio
+amsds . čiausiam     # kam absoliučiausiam
+amsas . čiausią      # ką  absoliučiausią
+amsbs . čiausiu      # kuo absoliučiausiu
 amsls . čiausiame    # kur absoliučiausiame
-ampns . čiausi    # kas absoliučiausi
-ampgs . čiausių    # ko  absoliučiausių
+ampns . čiausi       # kas absoliučiausi
+ampgs . čiausių      # ko  absoliučiausių
 ampds . čiausiems    # kam absoliučiausiems
-ampas . čiausius    # ką  absoliučiausius
+ampas . čiausius     # ką  absoliučiausius
 ampbs . čiausiais    # kuo absoliučiausiais
-ampls . čiausiuose    # kur absoliučiausiuose
+ampls . čiausiuose   # kur absoliučiausiuose
 afsnp . ti    # kas absoliuti
 afsgp . čios    # ko  absoliučios
 afsdp . čiai    # kam absoliučiai
@@ -926,7 +982,7 @@ afpas . čiausias    # ką  absoliučiausias
 afpbs . čiausiomis    # kuo absoliučiausiomis
 afpls . čiausiose    # kur absoliučiausiose
 
-@rule geras
+@rule būdvardis -as,-o (gergas)
 amsn . as
 amsg . o
 amsd . am
@@ -982,33 +1038,33 @@ afpl . iose
 amsnc . esnis>
 afsnc . esnė>
 
-@rule Gražus Graži
-amsn . us
-amsg . aus
-amsd . iam
-amsa . ų
-amsb . iu
-amsl . iame
-ampn . ūs
-ampg . ių
-ampd . iems
-ampa . ius
-ampb . iais
-ampl . iuose
-afsn . ia
-afsg . ios
-afsd . iai
-afsa . ią
-afsb . ia
-afsl . ioje
-afpn . ios
-afpg . ių
-afpd . ioms
-afpa . ias
-afpb . iomis
-afpl . iose
-amsnc . esnis>
-afsnc . esnė>
+@rule būdvardis -us,-i (gražus graži)
+amsn  . us        # kas gražus
+amsg  . aus       # ko  gražaus   
+amsd  . iam       # kam gražiam   
+amsa  . ų         # ką  gražų     
+amsb  . iu        # kuo gražiu    
+amsl  . iame      # kur gražiame  
+ampn  . ūs        # kas gražūs    
+ampg  . ių        # ko  gražių    
+ampd  . iems      # kam gražiems  
+ampa  . ius       # ką  gražius   
+ampb  . iais      # kuo gražiais  
+ampl  . iuose     # kur gražiuose 
+afsn  . i         # kas graži    
+afsg  . ios       # ko  gražios   
+afsd  . iai       # kam gražiai   
+afsa  . ią        # ką  gražią    
+afsb  . ia        # kuo gražia    
+afsl  . ioje      # kur gražioje  
+afpn  . ios       # kas gražios   
+afpg  . ių        # ko  gražių    
+afpd  . ioms      # kam gražioms  
+afpa  . ias       # ką  gražias   
+afpb  . iomis     # kuo gražiomis 
+afpl  . iose      # kur gražiose  
+amsnc . esnis     # gražesnis
+afsnc . esnė      # gražesnė
 
 @rule Medinis Medinė
 amsn . is
@@ -1074,7 +1130,7 @@ afsn . usi
 # -----------------------------------------
 # ------------ NAMES
 # -----------------------------------------
-@rule masculine AS
+@rule daiktavardis -as,-o
 nmsn . as
 nmsg . o
 nmsd . ui
@@ -1100,21 +1156,35 @@ nfpa . as
 nfpi . omis
 nfpl . ose
 
-@rule Masculine AS
-nmsn . as
-nmsg . o
-nmsd . ui
-nmsa . ą
-nmsi . u
-nmsl . e
-nmpn . ai
-nmpg . ų
-nmpd . ams
-nmpa . us
-nmpi . ais
-nmpl . uose
+@rule daiktavardis -as,-o (namas)
+nmsn . as     # kas
+nmsg . o      # ko 
+nmsd . ui     # kam
+nmsa . ą      # ką 
+nmsi . u      # kuo
+nmsl . e      # kur
+nmpn . ai     # kas
+nmpg . ų      # ko 
+nmpd . ams    # kam
+nmpa . us     # ką 
+nmpi . ais    # kuo
+nmpl . uose   # kur
 
-@rule Masculine IAS
+@rule daiktavardis -as,-o (radijas)
+nmsn . as     # kas
+nmsg . o      # ko 
+nmsd . ui     # kam
+nmsa . ą      # ką 
+nmsi . u      # kuo
+nmsl . uje    # kur
+nmpn . ai     # kas
+nmpg . ų      # ko 
+nmpd . ams    # kam
+nmpa . us     # ką 
+nmpi . ais    # kuo
+nmpl . uose   # kur
+
+@rule daiktavaris -ias,io
 nmsn . ias
 nmsg . io
 nmsd . iui
@@ -1128,7 +1198,7 @@ nmpa . ius
 nmpi . iais
 nmpl . iuose
 
-@rule Masculine IS
+@rule daiktavardis -is,-io
 nmsn . is
 nmsg . io
 nmsd . iui
@@ -1142,13 +1212,13 @@ nmpa . ius
 nmpi . iais
 nmpl . iuose
 
-@rule Masculine tis (Amerikietis)
+@rule daiktavardis -tis,-čiui (mokestis, amerikietis)
 nmsn . tis
 nmsg . čio
 nmsd . čiui
-nmsa . į
+nmsa . tį
 nmsi . čiu
-nmsl . yje
+nmsl . tyje
 nmpn . čiai
 nmpg . čių
 nmpd . čiams
@@ -1156,7 +1226,21 @@ nmpa . čius
 nmpi . čiais
 nmpl . čiuose
 
-@rule Masculine dis (medis)
+@rule daiktavardis -tis,-čiam (vadovaujantis)
+nmsn . tis
+nmsg . čio
+nmsd . čiam
+nmsa . tį
+nmsi . čiu
+nmsl . čiajame
+nmpn . tys
+nmpg . čių
+nmpd . tiems
+nmpa . čius
+nmpi . čiais
+nmpl . čiuose
+
+@rule daiktavaris -dis,-džio (medis)
 nmsn . is
 nmsg . žio
 nmsd . žiui
@@ -1306,6 +1390,46 @@ nmpd . tims
 nmpa . tis
 nmpi . timis
 nmpl . tyse
+
+@rule daiktavardis -is,-u (atvejis)
+nmsn . is    # kas atvejis
+nmsg . o     # ko  atvejo
+nmsd . ui    # kam atvejui
+nmsa . į     # ką  atvejį
+nmsi . u     # kuo atveju
+nmsl . yje   # kur atvejyje
+nmpn . ai    # kas atvejai
+nmpg . ų     # ko  atvejų
+nmpd . ams   # kam atvejams
+nmpa . us    # ką  atvejus
+nmpi . ais   # kuo atvejais
+nmpl . uose  # kur atvejuose
+
+@rule daiktavardis -usis,-ioji (specialusis, specialioji)
+nmsn . usis       # kas specialusis
+nmsg . iojo       # ko  specialiojo
+nmsd . iajam      # kam specialiajam
+nmsa . ųjį        # ką  specialųjį
+nmsi . iuoju      # kuo specialiuoju
+nmsl . iajame     # kur specialiajame
+nmpn . ieji       # kas specialieji
+nmpg . iųjų       # ko  specialiųjų
+nmpd . iesiems    # kam specialiesiems
+nmpa . iuosius    # ką  specialiuosius
+nmpi . iaisiais   # kuo specialiaisiais
+nmpl . iuosiuose  # kur specialiuosiuose
+nfsn . ioji       # kas specialioji
+nfsg . iosios     # ko  specialiosios
+nfsd . iajai      # kam specialiajai
+nfsa . iąją       # ką  specialiąją
+nfsi . iąja       # kuo specialiąja
+nfsl . ioje       # kur specialioje
+nfpn . iosios     # kas specialiosios
+nfpg . iųjų       # ko  specialiųjų
+nfpd . iosioms    # kam specialiosioms
+nfpa . iąsias     # ką  specialiąsias
+nfpi . iosiomis   # kuo specialiosiomis
+nfpl . iosiose    # kur specialiosiose
 
 @rule sūnus
 nmsn . us
@@ -1579,7 +1703,7 @@ p ant
 @rule apie
 p apie
 
-@rule aplink
+@rule prieveiksmis aplink
 ep aplink
 
 @rule ar
@@ -1588,8 +1712,8 @@ c ar
 @rule arba
 c arba
 
-@rule aukštin
-ep aukštin
+@rule prieveiksmis aukštyn
+ep aukštyn
 
 @rule bei
 c bei
@@ -1600,27 +1724,46 @@ c be
 @rule bet
 c bet
 
-@rule beveik
+@rule prieveiksmis beveik
 en beveik
 
 @rule čia
 c čia
 
-@rule dar
+@rule prieveiksmis dar
 ep dar
 
-@rule dabar
+@rule prieveiksmis dabar
 ep dabar
 
-@rule daug
+@rule prieveiksmis daug
 epp daug
 epc daugiau
 eps daugiausiai
 
-@rule dažnai
-epp dažnai
-epc dažniau
-eps dažniausiai
+@rule prieveiksmis vietoj
+epp vietoj
+
+@rule prieveiksmis kitaip
+epp kitaip
+
+@rule prieveiksmis tiesiogiai
+epp tiesiogiai       
+
+@rule prieveiksmis -iai,-iau,-iausiai (tiesiogiai)
+epp . iai       
+epc . iau
+eps . iausiai
+
+@rule prieveiksmis -i,-iau,-iausiai (toli)
+epp . i       
+epc . iau
+eps . iausiai
+
+@rule prieveiksmis -ai,-iau,-iausiai (dažnai, vėlai)
+epp . ai       
+epc . iau
+eps . iausiai
 
 @rule dėl
 p dėl
@@ -1637,7 +1780,7 @@ p iki
 @rule iš
 p iš
 
-@rule itin
+@rule prieveiksmis itin
 epp itin
 
 @rule jau
@@ -1658,13 +1801,13 @@ c kai
 @rule kad
 c kad
 
-@rule kada
+@rule prieveiksmis kada
 e kada
 
-@rule kartais
+@rule prieveiksmis kartais
 epp kartais
 
-@rule kartu
+@rule prieveiksmis kartu
 epp kartu
 
 @rule kiek
@@ -1890,140 +2033,304 @@ epp kartu
 *fpb kelintomis
 *fpl kelintose
 
-@rule aš
-**sn aš
-**sg manęs
-**sd man
-**sa mane
-**sb manimi
-**sl manyje
-**pn mes
-**pg mūsų
-**pd mums
-**pa mus
-**pb mumis
-**pl mumyse
+@rule įvardis aš
+o-sn aš      # kas 
+o-sg manęs   # ko  
+o-sd man     # kam 
+o-sa mane    # ką  
+o-sb manimi  # kuo 
+o-sl manyje  # kur 
+o-pn mes     # kas
+o-pg mūsų    # ko 
+o-pd mums    # kam
+o-pa mus     # ką 
+o-pb mumis   # kuo
+o-pl mumyse  # kur
 
-@rule tu
-**sn tu
-**sg tavęs
-**sd tau
-**sa tave
-**sb tavimi
-**sl tavyje
-**pn jūs
-**pg jūsų
-**pd jums
-**pa jus
-**pb jumis
-**pl jumyse
+@rule įvardis tu
+o-sn tu      # kas
+o-sg tavęs   # ko 
+o-sd tau     # kam
+o-sa tave    # ką 
+o-sb tavimi  # kuo
+o-sl tavyje  # kur
+o-pn jūs     # kas 
+o-pg jūsų    # ko 
+o-pd jums    # kam
+o-pa jus     # ką 
+o-pb jumis   # kuo
+o-pl jumyse  # kur
 
-@rule jis
-**sn jis
-**sg jo
-**sd jam
-**sa jį
-**sb juo
-**sl jame
-**pn jie
-**pg jų
-**pd jiems
-**pa juos
-**pb jais
-**pl juose
+@rule įvardis jis
+omsn jis     # kas
+omsg jo      # ko 
+omsd jam     # kam
+omsa jį      # ką 
+omsb juo     # kuo
+omsl jame    # kur
+ompn jie     # kas
+ompg jų      # ko 
+ompd jiems   # kam
+ompa juos    # ką 
+ompb jais    # kuo
+ompl juose   # kur
 
-@rule ji
-**sn ji
-**sg jos
-**sd jai
-**sa ją
-**sb ja
-**sl joje
-**pn jos
-**pg jų
-**pd joms
-**pa jas
-**pb jomis
-**pl jose
+@rule įvardis ji
+ofsn ji      # kas
+ofsg jos     # ko 
+ofsd jai     # kam
+ofsa ją      # ką 
+ofsb ja      # kuo
+ofsl joje    # kur
+ofpn jos     # kas
+ofpg jų      # ko 
+ofpd joms    # kam
+ofpa jas     # ką 
+ofpb jomis   # kuo
+ofpl jose    # kur
 
-@rule šis
-*msn šis
-*msg šio
-*msd šiam
-*msa šį
-*msb šiuo
-*msl šiame
-*mpn šie
-*mpg šių
-*mpd šiems
-*mpa šiuos
-*mpb šiais
-*mpl šiuose
-*fsn ši
-*fsg šios
-*fsd šiai
-*fsa šią
-*fsb šia
-*fsl šioje
-*fpn šios
-*fpg šių
-*fpd šioms
-*fpa šias
-*fpb šiomis
-*fpl šiose
+@rule įvardis šis
+omsn šis     # kas
+omsg šio     # ko 
+omsd šiam    # kam
+omsa šį      # ką 
+omsb šiuo    # kuo
+omsl šiame   # kur
+ompn šie     # kas
+ompg šių     # ko 
+ompd šiems   # kam
+ompa šiuos   # ką 
+ompb šiais   # kuo
+ompl šiuose  # kur
+ofsn ši      # kas
+ofsg šios    # ko 
+ofsd šiai    # kam
+ofsa šią     # ką 
+ofsb šia     # kuo
+ofsl šioje   # kur
+ofpn šios    # kas
+ofpg šių     # ko 
+ofpd šioms   # kam
+ofpa šias    # ką 
+ofpb šiomis  # kuo
+ofpl šiose   # kur
 
-@rule tas
-*msn tas
-*msg to
-*msd tam
-*msa tą
-*msb tuo
-*msl tame
-*mpn tie
-*mpg tų
-*mpd tiems
-*mpa tuos
-*mpb tais
-*mpl tuose
-*fsn ta
-*fsg tos
-*fsd tai
-*fsa tą
-*fsb ta
-*fsl toje
-*fpn tos
-*fpg tų
-*fpd toms
-*fpa tas
-*fpb tomis
-*fpl tose
+@rule įvardis tas
+omsn tas     # kas
+omsg to      # ko 
+omsd tam     # kam
+omsa tą      # ką 
+omsb tuo     # kuo
+omsl tame    # kur
+ompn tie     # kas
+ompg tų      # ko 
+ompd tiems   # kam
+ompa tuos    # ką 
+ompb tais    # kuo
+ompl tuose   # kur
+ofsn ta      # kas
+ofsg tos     # ko 
+ofsd tai     # kam
+ofsa tą      # ką 
+ofsb ta      # kuo
+ofsl toje    # kur
+ofpn tos     # kas
+ofpg tų      # ko 
+ofpd toms    # kam
+ofpa tas     # ką 
+ofpb tomis   # kuo
+ofpl tose    # kur
 
-@rule anas
-*msn anas
-*msg ano
-*msd anam
-*msa aną
-*msb anuo
-*msl aname
-*mpn anie
-*mpg anų
-*mpd aniems
-*mpa anuos
-*mpb anais
-*mpl anuose
-*fsn ana
-*fsg anos
-*fsd anai
-*fsa aną
-*fsb ana
-*fsl anoje
-*fpn anos
-*fpg anų
-*fpd anoms
-*fpa anas
-*fpb anomis
-*fpl anose
+@rule įvardis anas
+omsn anas    # kas
+omsg ano     # ko 
+omsd anam    # kam
+omsa aną     # ką 
+omsb anuo    # kuo
+omsl aname   # kur
+ompn anie    # kas
+ompg anų     # ko 
+ompd aniems  # kam
+ompa anuos   # ką 
+ompb anais   # kuo
+ompl anuose  # kur
+ofsn ana     # kas
+ofsg anos    # ko 
+ofsd anai    # kam
+ofsa aną     # ką 
+ofsb ana     # kuo
+ofsl anoje   # kur
+ofpn anos    # kas
+ofpg anų     # ko 
+ofpd anoms   # kam
+ofpa anas    # ką 
+ofpb anomis  # kuo
+ofpl anose   # kur
+
+@rule įvardis kitas
+omsn kitas    # kas
+omsg kito     # ko 
+omsd kitam    # kam
+omsa kitą     # ką 
+omsb kitu     # kuo
+omsl kitame   # kur
+ompn kiti     # kas
+ompg kitų     # ko 
+ompd kitiems  # kam
+ompa kitus    # ką 
+ompb kitais   # kuo
+ompl kituose  # kur
+ofsn kita     # kas
+ofsg kitos    # ko 
+ofsd kitai    # kam
+ofsa kitą     # ką 
+ofsb kita     # kuo
+ofsl kitoje   # kur
+ofpn kitos    # kas
+ofpg kitų     # ko 
+ofpd kitoms   # kam
+ofpa kitas    # ką 
+ofpb kitomis  # kuo
+ofpl kitose   # kur
+
+@rule įvardis kuris
+omsn kuris    # kas
+omsg kurio    # ko 
+omsd kuriam   # kam
+omsa kurį     # ką 
+omsb kuriuo   # kuo
+omsl kuriame  # kur
+ompn kurie    # kas
+ompg kurių    # ko 
+ompd kuriems  # kam
+ompa kuriuos  # ką 
+ompb kuriais  # kuo
+ompl kuriuose # kur
+ofsn kuri     # kas
+ofsg kurios   # ko 
+ofsd kuriai   # kam
+ofsa kurią    # ką 
+ofsb kuria    # kuo
+ofsl kurioje  # kur
+ofpn kurios   # kas
+ofpg kurių    # ko 
+ofpd kurioms  # kam
+ofpa kurias   # ką 
+ofpb kuriomis # kuo
+ofpl kuriose  # kur
 
 # -----------------------------------------
 # ------------ ADVERBS / COMPARISON
 # -----------------------------------------
+
+# Dalyviai
+
+@rule dalyvis (nustatyti)
+V     . i     #     nustatyti
+tmsns . as    # kas nustatytas
+tmsgs . o     # ko  nustatyto   
+tmsds . am    # kam nustatytam  
+tmsas . ą     # ką  nustatytą   
+tmsbs . u     # kuo nustatytu   
+tmsls . ame   # kur nustatytame 
+tmpns . i     # kas nustatyti   
+tmpgs . ų     # ko  nustatytų   
+tmpds . iems  # kam nustatytiems
+tmpas . us    # ką  nustatytus  
+tmpbs . ais   # kuo nustatytais 
+tmpls . uose  # kur nustatytuose
+
+# Padalyviai
+
+@rule padalyvis (laukiant)
+V     . ti        # laukti
+gp    . iant      # laukiant
+gs    . us        # laukus
+gi    . davus     # laukdavus
+gf    . siant     # lauksiant
+
+@rule padalyvis (išskyrus)
+V     . irti      # išskirti
+gp    . iriant    # išskiriant
+gs    . yrus      # išskyrus
+gi    . irdavus   # išskirdavus
+gf    . irsiant   # išskirsiant
+
+@rule padalyvis (einant)
+V     . eiti      # eiti
+gp    . einant    # einant
+gs    . ėjus      # ėjus
+gi    . eidavus   # eidavus
+gf    . eisiant   # eisiant
+
+@rule padalyvis (žiūrint)
+V     . ėti       # žiūrėti
+gp    . int       # žiūrint
+gs    . ėjus      # žiūrėjus
+gi    . ėdavus    # žiūrėdavus
+gf    . ėsiant    # žiūrėsiant
+
+@rule padalyvis (įskaitant)
+V     . tyti       # įskaityti   
+gp    . tant       # įskaitant   
+gs    . čius       # įskaičius   
+gi    . tydavus    # įskaitydavus
+gf    . tysiant    # įskaitysiant
+
+
+# Skaitvardžiai
+
+
+@rule skaitvardis -asis,-oji (pirmasis, pirmoji)
+amsn  . asis      # kas pirmasis
+amsg  . ojo       # ko  pirmojo
+amsd  . ajam      # kam pirmajam
+amsa  . ąjį       # ką  pirmąjį
+amsb  . uoju      # kuo pirmuoju
+amsl  . ajame     # kur pirmajame  
+ampn  . ieji      # kas pirmieji
+ampg  . ųjų       # ko  pirmųjų    
+ampd  . iesiems   # kam pirmiesiems
+ampa  . uosius    # ką  pirmuosius
+ampb  . aisiais   # kuo pirmaisiais  
+ampl  . uosiuose  # kur pirmuosiuose
+afsn  . oji       # kas pirmoji
+afsg  . osios     # ko  pirmisios
+afsd  . ajai      # kam pirmajai
+afsa  . ąją       # ką  pirmąją
+afsb  . ąja       # kuo pirmąja
+afsl  . ojoje     # kur pirmojoje
+afpn  . osios     # kas pirmosios
+afpg  . ųjų       # ko  pirmųjų
+afpd  . osioms    # kam pirmosios
+afpa  . ąsias     # ką  pirmąsias
+afpb  . osiomis   # kuo pirmosiomis
+afpl  . osiose    # kur pirmosiose
+
+@rule skaitvardis du
+amsn  du          # kas
+amsg  dviejų      # ko 
+amsd  dviem       # kam
+amsa  du          # ką 
+amsb  dviem       # kuo
+amsl  dviejuose   # kur
+afsn  dvi         # kas
+afsg  dviejų      # ko 
+afsd  dviem       # kam
+afsa  dvi         # ką 
+afsb  dviem       # kuo
+afsl  dviejose    # kur
+
+@rule skaitvardis trys
+amsn  trys         # kas
+amsg  trijų        # ko 
+amsd  trims        # kam
+amsa  tris         # ką 
+amsb  trimis       # kuo
+amsl  trijuose     # kur
+afsn  trys         # kas
+afsg  trijų        # ko 
+afsd  trims        # kam
+afsa  tris         # ką 
+afsb  trimis       # kuo
+afsl  trijose      # kur

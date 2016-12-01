@@ -12,6 +12,9 @@ pos:
   p: preposition   # Prielinksnis
   c: conjunction   # Jungtukas
   P: particle      # Dalelytė
+  g: gerund        # Padalyvis
+  o: pronoun       # Įvardis
+  t: participle    # Dalyvis
 
 
 gender:
@@ -47,9 +50,10 @@ case:
 
 
 tense:
-  p: present
-  s: past
-  f: future
+  p: present             # Esamasis            esu
+  s: past                # Būtasis kartinis    buvau
+  i: past iterative      # Būtasis dažninis    būdavau
+  f: future              # Būsimasis           būsiu
   P: perfect progressive
 
 
@@ -103,6 +107,17 @@ grammar:
   - number
   - gender
   - voice
+  gerund:
+  - tense
   adverb:
   - polarity
   - comparison
+  pronoun:
+  - gender
+  - number
+  - case
+  participle:
+  - gender
+  - number
+  - case
+  - tense
