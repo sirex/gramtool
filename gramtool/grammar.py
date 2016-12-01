@@ -1,5 +1,10 @@
+import logging
+
 from collections import defaultdict
 from collections import OrderedDict
+
+
+logger = logging.getLogger(__name__)
 
 
 class Form(object):
@@ -68,18 +73,20 @@ class Grammar(object):
                 elif key not in stems[form.stem]:
                     stems[form.stem].append(key)
 
-        sort_by_len = lambda k: len(k[0])
+        sort_by_len = lambda k: len(k[0])  # noqa
         suffixes = sorted(suffixes.items(), key=sort_by_len, reverse=True)
         return stems, suffixes
 
     def check_spelling(self, words):
         for word in words:
             if not self.hs.spell(word):
+                logger.debug("  %s is not supported by hunspell", word)
                 return False
         return True
 
     def iter_rules(self, word):
         for stem, suffix, rule in self.find_rules(word):
+            logger.debug("rule: %s", rule.name)
             forms = rule.build_forms(stem)
             if self.check_spelling(forms):
                 lemma = None

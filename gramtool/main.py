@@ -1,3 +1,4 @@
+import logging
 import pathlib
 import argparse
 import pkg_resources as pres
@@ -16,12 +17,16 @@ def main():
     parser.add_argument('-d', '--data-dir', type=str, default=data_dir, help="Data directory.")
     parser.add_argument('-l', '--lang', type=str, default='lt', help="Two letter language code [default: lt].")
     parser.add_argument('-f', '--forms', action='store_true', default=False, help="Print all <word> forms.")
+    parser.add_argument('--debug', action='store_true', default=False, help="Print debug information.")
 
     parser.add_argument('--case', type=str, default=None, help="Change case of given <word>.")
 
     args = parser.parse_args()
 
-    gs = gramtool.GramTool(pathlib.Path(args.data_dir), args.lang)
+    if args.debug:
+        logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s", level=logging.DEBUG)
+    else:
+        logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s", level=logging.INFO)
 
     try:
         gt = gramtool.GramTool(pathlib.Path(args.data_dir), args.lang)
