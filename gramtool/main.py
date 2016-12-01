@@ -24,7 +24,7 @@ def main():
     gs = gramtool.GramTool(pathlib.Path(args.data_dir), args.lang)
 
     try:
-        grammar = gs.grammar()
+        gt = gramtool.GramTool(pathlib.Path(args.data_dir), args.lang)
     except UserSideError as e:
         print(e)
         return 1
@@ -37,6 +37,6 @@ def main():
     if change_form_kwargs:
         print(gramtool.change_form(args.word, **change_form_kwargs))
     else:
-        print_forms(grammar, args.word)
+        print_forms(gt.grammar, args.word)
         if args.forms:
-            print_all_forms(grammar, args.word)
+            print_all_forms(gt.grammar, args.word)

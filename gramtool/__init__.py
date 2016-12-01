@@ -1,4 +1,3 @@
-import functools
 import pathlib
 import pkg_resources as pres
 
@@ -13,37 +12,27 @@ class GramTool(object):
     def __init__(self, data_dir: pathlib.Path=None, language='lt'):
         self.data_dir = data_dir or pathlib.Path(pres.resource_filename('gramtool', 'data'))
         self.language = language
+        self.symbols = get_grammar_tree(str(self.data_dir / 'grammar.yaml'))
+        self.hunspell = self._get_hunspell()
+        self.frequency = get_frequency_list(str(self.data_dir / self.language / 'frequency'))
+        self.grammar = self._get_grammar()
 
-    @functools.lru_cache()
-    def hunspell(self):
+    def _get_hunspell(self):
         hunspell_dic_file = self.data_dir / self.language / 'hunspell.dic'
         hunspell_aff_file = self.data_dir / self.language / 'hunspell.aff'
         return get_hunspell_dict(str(hunspell_aff_file), str(hunspell_dic_file))
 
-    @functools.lru_cache()
-    def symbols(self):
-        grammar_file = self.data_dir / 'grammar.yaml'
-        return get_grammar_tree(str(grammar_file))
-
-    @functools.lru_cache()
-    def grammar(self):
-        symbols = self.symbols()
+    def _get_grammar(self):
         rules_file = self.data_dir / self.language / 'grammar'
-        rules = get_grammar_rules(symbols, str(rules_file))
-        return Grammar(self.hunspell(), symbols, rules)
-
-    @functools.lru_cache()
-    def frequency(self):
-        frequency_file = self.data_dir / self.language / 'frequency'
-        return get_frequency_list(str(frequency_file))
+        rules = get_grammar_rules(self.symbols, str(rules_file))
+        return Grammar(self.hunspell, self.symbols, rules)
 
     def _get_word_lemma(self, word):
         result = []
-        frequency = self.frequency()
-        for lemma, lexeme in self.grammar().iter_rules(word):
+        for lemma, lexeme in self.grammar.iter_rules(word):
             lemma = str(lemma)
             try:
-                index = frequency.index(lemma)
+                index = self.frequency.index(lemma)
             except ValueError:
                 index = float('inf')
             result.append((index, lemma))
@@ -62,18 +51,16 @@ class GramTool(object):
     def change_form(self, word, **kwargs):
         spec = None
         candidates = {}
-        grammar = self.grammar()
-        symbols = self.symbols()
-        for stem, suffix, rule in grammar.find_rules(word):
+        for stem, suffix, rule in self.grammar.find_rules(word):
             forms = rule.build_forms(stem)
-            if grammar.check_spelling(forms):
+            if self.grammar.check_spelling(forms):
                 for form in rule.forms.values():
                     candidate = form.get_word(stem)
                     if word == candidate:
                         spec = form.spec
                     candidates[form.spec.lower()] = candidate
                 if spec:
-                    return candidates[change_spec(symbols, spec, **kwargs).lower()]
+                    return candidates[change_spec(self.symbols, spec, **kwargs).lower()]
 
 
 gt = GramTool()

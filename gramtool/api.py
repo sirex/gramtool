@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import os.path
+import pkg_resources as pres
 
 from gramtool.parser import get_grammar_rules
 from gramtool.utils.grammar import get_grammar_tree
@@ -13,9 +14,8 @@ _dicts = {}
 
 class Wrapper(object):
     def __init__(self, lang):
-        path = '..', '..', '..', 'data'
-        data_dir = os.path.abspath(os.path.join(__file__, *path))
-        data = lambda *args: os.path.join(data_dir, *args)
+        data_dir = pres.resource_filename('gramtool', 'data')
+        data = lambda *args: os.path.join(data_dir, *args)  # noqa
 
         grammar_file = data('grammar.yaml')
         rules_file = data(lang, 'grammar')
