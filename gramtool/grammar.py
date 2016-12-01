@@ -145,3 +145,26 @@ def change_spec(symbols, spec, **kwargs):
         elif key not in symbols:
             raise ValueError("Unknown symbol '%s'." % key)
     return ''.join(spec)
+
+
+def get_properties(symbols, spec):
+    spec = list(spec)
+    try:
+        pos = symbols['pos'][spec[0]]
+    except KeyError:
+        raise ValueError("Unknown symbol %r of 'pos'." % spec[0])
+    except IndexError:
+        raise ValueError("Unknown 'pos' symbol.")
+    properties = OrderedDict([('pos', pos)])
+    for i, prop in enumerate(symbols['grammar'][pos], 1):
+        try:
+            symbol = spec[i]
+        except IndexError:
+            raise ValueError("Unknown %r symbol." % prop)
+        try:
+            value = symbols[prop][symbol]
+        except KeyError:
+            raise ValueError("Unknown symbol %r of %r." % (symbol, prop))
+        value = value.replace('-only', '')
+        properties[prop] = value
+    return properties
