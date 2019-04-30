@@ -37,7 +37,7 @@ number:
 
 
 case:
-  n: nominative      # Vardininmas   Kas?
+  n: nominative      # Vardininkas   Kas?
   g: genitive        # Kilmininkas   Ko?
   d: dative          # Naudininkas   Kam?
   a: accusative      # Galininkas    Ką?
